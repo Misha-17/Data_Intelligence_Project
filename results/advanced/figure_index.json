@@ -11,7 +11,8 @@
       "png": "figures/01_model_comparison.png",
       "svg": "figures/01_model_comparison.svg",
       "pdf": "figures/01_model_comparison.pdf"
-    }
+    },
+    "visible_text": "axis names and tick labels only"
   },
   {
     "stem": "02_feature_group_ablation",
@@ -26,7 +27,8 @@
       "png": "figures/02_feature_group_ablation.png",
       "svg": "figures/02_feature_group_ablation.svg",
       "pdf": "figures/02_feature_group_ablation.pdf"
-    }
+    },
+    "visible_text": "axis names and tick labels only"
   },
   {
     "stem": "03_drug_performance",
@@ -35,12 +37,13 @@
     "source_tables": [
       "drug_performance.csv"
     ],
-    "note": "Drug order follows the configured panel, not test performance.",
+    "note": "Drug order follows the configured panel, not test performance. Teal dots are model estimates. Orange ticks mark resistance prevalence. Intervals are 95% patient-bootstrap intervals with 500 draws.",
     "files": {
       "png": "figures/03_drug_performance.png",
       "svg": "figures/03_drug_performance.svg",
       "pdf": "figures/03_drug_performance.pdf"
-    }
+    },
+    "visible_text": "axis names and tick labels only"
   },
   {
     "stem": "04_overall_calibration",
@@ -51,12 +54,13 @@
       "probability_histogram.csv",
       "calibration_summary.csv"
     ],
-    "note": "A lower Brier score alone does not prove better calibration; use the reliability display too.",
+    "note": "A lower Brier score alone does not prove better calibration; use the reliability display too. Orange is before calibration; teal is after calibration. The gray dashed line marks exact agreement.",
     "files": {
       "png": "figures/04_overall_calibration.png",
       "svg": "figures/04_overall_calibration.svg",
       "pdf": "figures/04_overall_calibration.pdf"
-    }
+    },
+    "visible_text": "axis names and tick labels only"
   },
   {
     "stem": "05_calibration_by_drug",
@@ -66,12 +70,13 @@
       "calibration_bins.csv",
       "calibration_summary.csv"
     ],
-    "note": "Open markers flag sparse bins; their estimates need more caution.",
+    "note": "Open markers flag sparse bins; their estimates need more caution. Panels run left to right, then top to bottom, in this order: ampicillin, amoxicillin/clavulanate, cefazolin, cefepime, ceftriaxone, ciprofloxacin, gentamicin, piperacillin/tazobactam, trimethoprim/sulfamethoxazole. The gray dashed line marks exact agreement. Open circles flag sparse bins.",
     "files": {
       "png": "figures/05_calibration_by_drug.png",
       "svg": "figures/05_calibration_by_drug.svg",
       "pdf": "figures/05_calibration_by_drug.pdf"
-    }
+    },
+    "visible_text": "axis names and tick labels only"
   },
   {
     "stem": "06_threshold_tradeoffs",
@@ -86,7 +91,8 @@
       "png": "figures/06_threshold_tradeoffs.png",
       "svg": "figures/06_threshold_tradeoffs.svg",
       "pdf": "figures/06_threshold_tradeoffs.pdf"
-    }
+    },
+    "visible_text": "axis names and tick labels only"
   },
   {
     "stem": "07_label_coverage",
@@ -100,7 +106,8 @@
       "png": "figures/07_label_coverage.png",
       "svg": "figures/07_label_coverage.svg",
       "pdf": "figures/07_label_coverage.pdf"
-    }
+    },
+    "visible_text": "axis names and tick labels only"
   },
   {
     "stem": "08_missingness",
@@ -109,11 +116,12 @@
     "source_tables": [
       "missingness_by_split.csv"
     ],
-    "note": "Counts avoid repeatedly counting shared culture features once per organism and drug.",
+    "note": "Counts avoid repeatedly counting shared culture features once per organism and drug. Navy is training, orange is validation, and teal is test. The vertical offsets only separate the dots.",
     "files": {
       "png": "figures/08_missingness.png",
       "svg": "figures/08_missingness.svg",
       "pdf": "figures/08_missingness.pdf"
-    }
+    },
+    "visible_text": "axis names and tick labels only"
   }
 ]

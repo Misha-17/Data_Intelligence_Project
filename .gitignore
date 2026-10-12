@@ -12,7 +12,7 @@ data/raw/*
 submission/
 *.zip
 *.part
-report/report_preview.png
+/report/
 
 .env
 .env.*

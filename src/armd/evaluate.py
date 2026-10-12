@@ -426,16 +426,18 @@ def _permutation_importance(validation: pd.DataFrame, artifact: ModelArtifact,
 
 def _plots(test: pd.DataFrame, predictions: dict[str, np.ndarray],
            thresholds: dict[str, float], output: Path) -> None:
+    from .visual_style import clean_figure
+
     y = test["label"].to_numpy(int)
     plt.rcParams.update({"font.size": 9, "axes.spines.top": False, "axes.spines.right": False})
     fig, ax = plt.subplots(figsize=(7.4, 5.3))
-    ax.plot([0, 1], [0, 1], "--", color="gray", label="Perfect calibration")
+    ax.plot([0, 1], [0, 1], "--", color="gray")
     for model, p in predictions.items():
         observed, predicted = calibration_curve(y, p, n_bins=10, strategy="quantile")
-        ax.plot(predicted, observed, "o-", markersize=3, label=model.replace("_", " "))
+        ax.plot(predicted, observed, "o-", markersize=3)
     ax.set(xlim=(0, 1), ylim=(0, 1), xlabel="Predicted susceptibility probability",
-           ylabel="Observed susceptible fraction", title="Test calibration (quantile bins)")
-    ax.legend(fontsize=7, loc="lower right")
+           ylabel="Observed susceptible fraction")
+    clean_figure(fig)
     fig.tight_layout()
     fig.savefig(output / "calibration_test.png", dpi=180)
     plt.close(fig)
@@ -444,11 +446,11 @@ def _plots(test: pd.DataFrame, predictions: dict[str, np.ndarray],
     for model, p in predictions.items():
         for ax, outcome, probability in [(axes[0], 1 - y, 1 - p), (axes[1], y, p)]:
             precision, recall, _ = precision_recall_curve(outcome, probability)
-            ax.plot(recall, precision, linewidth=1.3, label=model.replace("_", " "))
-    for ax, prevalence, title in [(axes[0], (1 - y).mean(), "Resistance"), (axes[1], y.mean(), "Susceptibility")]:
-        ax.axhline(prevalence, color="gray", linestyle="--", label="Class prevalence")
-        ax.set(xlim=(0, 1), ylim=(0, 1), xlabel="Recall", ylabel="Precision", title=f"Test {title.lower()} precision-recall")
-    axes[1].legend(fontsize=6, loc="lower left")
+            ax.plot(recall, precision, linewidth=1.3)
+    for ax, prevalence, outcome in [(axes[0], (1 - y).mean(), "Resistant"), (axes[1], y.mean(), "Susceptible")]:
+        ax.axhline(prevalence, color="gray", linestyle="--")
+        ax.set(xlim=(0, 1), ylim=(0, 1), xlabel=f"{outcome} recall", ylabel=f"{outcome} precision")
+    clean_figure(fig)
     fig.tight_layout()
     fig.savefig(output / "precision_recall_test.png", dpi=180)
     plt.close(fig)
@@ -457,15 +459,11 @@ def _plots(test: pd.DataFrame, predictions: dict[str, np.ndarray],
     for ax, (model, p) in zip(axes.flat, predictions.items()):
         matrix = confusion_matrix(y, (p >= thresholds[model]).astype(int), labels=[0, 1])
         ax.imshow(matrix, cmap="Blues")
-        for row in range(2):
-            for col in range(2):
-                ax.text(col, row, f"{matrix[row, col]:,}", ha="center", va="center",
-                        color="white" if matrix[row, col] > matrix.max() / 2 else "black")
         ax.set(xticks=[0, 1], yticks=[0, 1], xticklabels=["R", "S"], yticklabels=["R", "S"],
-               xlabel="Predicted", ylabel="Observed", title=model.replace("_", " "))
+               xlabel="Predicted class", ylabel="Observed class")
     for ax in list(axes.flat)[len(predictions):]:
         ax.axis("off")
-    fig.suptitle("Test confusion matrices at validation-selected thresholds", fontsize=11)
+    clean_figure(fig)
     fig.tight_layout()
     fig.savefig(output / "confusion_matrices_test.png", dpi=180)
     plt.close(fig)

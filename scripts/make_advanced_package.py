@@ -362,6 +362,7 @@ def write_workbook(root, index):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=ROOT)
+    parser.add_argument("--include-reports", action="store_true", help="Also create the local PDF appendix and HTML gallery.")
     args = parser.parse_args()
     root = args.root.resolve()
     folder = root / "results" / "advanced"
@@ -373,13 +374,16 @@ def main():
             resolved = (folder / path).resolve()
             if not resolved.is_relative_to(root) or not resolved.is_file():
                 raise ValueError(f"Missing or out-of-project figure resource: {path}")
-    content = build_content(root, index)
-    pages = write_pdf(root, index, content)
-    write_gallery(root, index, content)
+    pages = None
+    outputs = ["results/advanced/advanced_results.xlsx"]
+    if args.include_reports:
+        content = build_content(root, index)
+        pages = write_pdf(root, index, content)
+        write_gallery(root, index, content)
+        outputs += ["report/advanced_analysis.pdf", "report/advanced_analysis.html"]
     sheets = write_workbook(root, index)
     print(json.dumps({"appendix_pages": pages, "figures": len(index), "workbook_sheets": sheets,
-                      "outputs": ["report/advanced_analysis.pdf", "report/advanced_analysis.html",
-                                  "results/advanced/advanced_results.xlsx"]}, indent=2))
+                      "outputs": outputs}, indent=2))
 
 
 if __name__ == "__main__":

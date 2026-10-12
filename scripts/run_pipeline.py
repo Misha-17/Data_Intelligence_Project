@@ -1,4 +1,4 @@
-"""Run source construction, profiling, model evaluation and report generation."""
+"""Build the analytical data and run model evaluation."""
 from pathlib import Path
 import argparse
 import hashlib

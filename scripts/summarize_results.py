@@ -3,13 +3,16 @@ from pathlib import Path
 import os
 import json
 import argparse
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'src'))
 os.environ.setdefault('MPLCONFIGDIR', str(ROOT / '.cache' / 'matplotlib'))
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import pandas as pd
+from armd.visual_style import clean_figure
 from openpyxl.styles import Font, PatternFill, Alignment
 from openpyxl.utils import get_column_letter
 
@@ -30,9 +33,10 @@ def main():
     plt.rcParams.update({'font.size': 9, 'axes.spines.top': False, 'axes.spines.right': False})
     fig, axes = plt.subplots(1, 2, figsize=(12, 5.5))
     axes[0].barh(miss.feature.str.replace('_',' '), miss.missing_fraction * 100, color='#287d8e')
-    axes[0].set(xlabel='Missing (%)', xlim=(0,100), title='Missing input values before imputation')
+    axes[0].set(xlabel='Missing (%)', ylabel='Input feature', xlim=(0,100))
     axes[1].barh(pooled.index, pooled.resistant_fraction * 100, color='#ba583c')
-    axes[1].set(xlabel='Resistant (%)', xlim=(0,100), title='Observed resistance by candidate antibiotic')
+    axes[1].set(xlabel='Resistant (%)', ylabel='Candidate antibiotic', xlim=(0,100))
+    clean_figure(fig)
     fig.tight_layout()
     fig.savefig(figures / 'missingness_and_resistance.png', dpi=180)
     plt.close(fig)
@@ -40,7 +44,8 @@ def main():
     fig, ax = plt.subplots(figsize=(7,4))
     ax.bar(depth.candidate_depth, depth.organism_events, color='#287d8e')
     ax.set(xlabel='Observed candidate antibiotics per organism event', ylabel='Organism events',
-           xticks=list(range(1,10)), title='Candidate depth after label exclusions')
+           xticks=list(range(1,10)))
+    clean_figure(fig)
     fig.tight_layout()
     fig.savefig(figures / 'candidate_depth.png', dpi=180)
     plt.close(fig)
@@ -48,10 +53,10 @@ def main():
     subgroup = pd.read_csv(out / 'models/subgroup_metrics.csv')
     perdrug = subgroup[(subgroup.model==selected) & (subgroup.group_field=='candidate_antibiotic')].sort_values('auprc_r')
     fig, ax = plt.subplots(figsize=(8,4.8))
-    ax.barh(perdrug.group_value, perdrug.auprc_r, color='#287d8e', label='Resistance average precision')
-    ax.scatter(1-perdrug.prevalence_s, perdrug.group_value, color='#ba583c', marker='|',s=160,label='Resistance prevalence')
-    ax.set(xlabel='Score', xlim=(0,1), title='Selected model: test performance by antibiotic')
-    ax.legend(loc='lower right',fontsize=8)
+    ax.barh(perdrug.group_value, perdrug.auprc_r, color='#287d8e')
+    ax.scatter(1-perdrug.prevalence_s, perdrug.group_value, color='#ba583c', marker='|',s=160)
+    ax.set(xlabel='Resistance average precision / resistance prevalence', ylabel='Candidate antibiotic', xlim=(0,1))
+    clean_figure(fig)
     fig.tight_layout()
     fig.savefig(figures / 'per_antibiotic_performance.png', dpi=180)
     plt.close(fig)

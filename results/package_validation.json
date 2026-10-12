@@ -9,9 +9,11 @@
   "maximum_metric_absolute_difference": 3.0531133177191805e-16,
   "saved_model_prediction_check": "passed",
   "dictionary_matches_analytical_columns": true,
-  "pdf_body_pages": 5,
-  "pdf_reference_pages": 1,
-  "report_em_dashes": 0,
+  "include_reports": false,
+  "report_checks": {
+    "status": "skipped",
+    "reason": "Report checks skipped per repository scope; enable explicitly with --include-reports."
+  },
   "data_source": "real ARMD, publisher checksum verified",
   "limitations": [
     "Instructor nine-drug list not supplied; panel remains provisional.",

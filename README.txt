@@ -1,5 +1,5 @@
 Antimicrobial resistance prediction
 
 See README.md for the project overview, setup steps and commands.
-Open report/report.pdf for the main report.
-Open report/advanced_analysis.html for the graph gallery.
+Open results/advanced/figures for the graphs.
+See results/advanced/figure_index.json for figure notes and source tables.

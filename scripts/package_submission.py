@@ -1,6 +1,7 @@
 """Package the completed work without duplicating the multi-gigabyte source data."""
 from pathlib import Path
 import hashlib
+import argparse
 import json
 import zipfile
 
@@ -8,6 +9,9 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--include-reports', action='store_true', help='Include local report files after they have been validated.')
+    args = parser.parse_args()
     validation = json.loads((ROOT/'results/package_validation.json').read_text())
     if validation['status'] != 'passed':
         raise ValueError('Validate final outputs before packaging')
@@ -20,7 +24,12 @@ def main():
         if advanced_validation['status'] != 'passed' or not advanced_validation.get('require_present'):
             raise ValueError('Run final advanced validation with --require-present before packaging')
     files = []
-    for directory in ['src', 'scripts', 'tests', 'docs', 'results', 'report']:
+    directories = ['src', 'scripts', 'tests', 'docs', 'results']
+    if args.include_reports:
+        if not validation.get('include_reports') or not advanced_validation or not advanced_validation.get('include_reports'):
+            raise ValueError('Validate reports with --include-reports before packaging them')
+        directories.append('report')
+    for directory in directories:
         files.extend(p for p in (ROOT/directory).rglob('*') if p.is_file()
                      and '__pycache__' not in p.parts and p.suffix != '.pyc'
                      and p.name != 'report_preview.png')
@@ -29,7 +38,8 @@ def main():
     files = sorted(set(files))
     manifest = {'source_data_note':'Raw publisher CSVs are not duplicated in this archive. Keep the supplied files in data/raw.',
                 'analysis_data_note':'The cleaned analytical dataset, held-out predictions and fitted models are included.',
-                'validation':validation, 'advanced_validation':advanced_validation, 'files':[]}
+                'validation':validation, 'advanced_validation':advanced_validation,
+                'reports_included':args.include_reports, 'files':[]}
     for path in files:
         manifest['files'].append({'path':path.relative_to(ROOT).as_posix(), 'bytes':path.stat().st_size,
                                   'sha256':hashlib.sha256(path.read_bytes()).hexdigest()})

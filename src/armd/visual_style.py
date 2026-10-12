@@ -1,6 +1,5 @@
 """A small shared plotting style for clear statistical figures."""
 from pathlib import Path
-import textwrap
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -47,14 +46,21 @@ def setup():
         'svg.fonttype':'none','pdf.fonttype':42,'figure.facecolor':'white'})
 
 
-def header(fig, title, subtitle):
-    fig.text(.04,.975,'ARMD | EXPLORATORY ANALYSIS',ha='left',va='top',fontsize=9,color=TEAL,weight='bold')
-    fig.text(.04,.93,title,ha='left',va='top',fontsize=19,weight='bold',color=NAVY)
-    fig.text(.04,.872,subtitle,ha='left',va='top',fontsize=11,color=GRAY)
-
-
-def footer(fig, note, width=155):
-    fig.text(.04,.025,textwrap.fill(note,width),ha='left',va='bottom',fontsize=9,color=GRAY,linespacing=1.45)
+def clean_figure(fig):
+    """Keep axis names and tick labels, with no other displayed text."""
+    axis_labels = [getattr(fig, name, None) for name in ['_supxlabel', '_supylabel']]
+    for label in fig.texts:
+        if label not in axis_labels:
+            label.set_visible(False)
+    for legend in fig.legends:
+        legend.set_visible(False)
+    for ax in fig.axes:
+        for location in ['left', 'center', 'right']:
+            ax.set_title('', loc=location)
+        if ax.get_legend() is not None:
+            ax.get_legend().remove()
+        for label in ax.texts:
+            label.set_visible(False)
 
 
 def xgrid(ax):
@@ -66,6 +72,8 @@ def xgrid(ax):
 def save(fig, directory, stem):
     directory=Path(directory)
     directory.mkdir(parents=True,exist_ok=True)
+    clean_figure(fig)
+    fig.tight_layout(pad=1.2)
     for extension in ['png','svg','pdf']:
         fig.savefig(directory/f'{stem}.{extension}',dpi=260,bbox_inches='tight',pad_inches=.16)
     plt.close(fig)

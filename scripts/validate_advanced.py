@@ -1,4 +1,8 @@
-"""Check advanced results against saved predictions; --require-present checks all deliverables."""
+"""Check advanced results; reports are excluded unless --include-reports is set.
+
+--require-present requires the workbook and other repository deliverables. It
+requires the appendix and gallery too when combined with --include-reports.
+"""
 from __future__ import annotations
 
 import argparse
@@ -19,10 +23,11 @@ ROOT = Path(__file__).resolve().parents[1]
 KEY = ["patient_id", "culture_id", "organism", "candidate_antibiotic"]
 
 
-def validate(root: Path, require_present: bool = False) -> dict:
+def validate(root: Path, require_present: bool = False, include_reports: bool = False) -> dict:
     root = root.resolve()
     advanced, models = root / "results/advanced", root / "results/models"
-    record = {"status": "running", "require_present": require_present, "sections": {},
+    record = {"status": "running", "require_present": require_present,
+              "include_reports": include_reports, "sections": {},
               "limitations": ["Numerical/file integrity checks do not establish clinical usefulness or external validity.",
                               "The advanced test analyses are exploratory because the original test results were already reviewed."]}
     comparisons = []
@@ -297,19 +302,28 @@ def validate(root: Path, require_present: bool = False) -> dict:
         record["sections"]["figures"] = {"figures": len(figure_index), "valid_exports": len(figure_paths),
             "formats": ["PNG", "SVG", "PDF"]}
 
-        report = PdfReader(root / "report/report.pdf")
-        report_text = [page.extract_text() or "" for page in report.pages]
-        reference_pages = [i for i, text in enumerate(report_text) if "References and file guide" in text]
-        assert reference_pages == [5] and len(report.pages) == 6
-        assert "\u2014" not in "\n".join(report_text)
-        report_meta = json.loads((root / "report/report_validation.json").read_text(encoding="utf-8"))
-        assert report_meta["body_pages"] == 5 and report_meta["pdf_pages"] == 6
-        record["sections"]["main_report"] = {"body_pages": 5, "reference_pages": 1, "em_dashes": 0}
+        report_skip = {"status": "skipped",
+                       "reason": "Report checks skipped per repository scope; enable explicitly with --include-reports."}
+        if include_reports:
+            report = PdfReader(root / "report/report.pdf")
+            report_text = [page.extract_text() or "" for page in report.pages]
+            reference_pages = [i for i, text in enumerate(report_text) if "References and file guide" in text]
+            assert reference_pages == [5] and len(report.pages) == 6
+            assert "\u2014" not in "\n".join(report_text)
+            report_meta = json.loads((root / "report/report_validation.json").read_text(encoding="utf-8"))
+            assert report_meta["body_pages"] == 5 and report_meta["pdf_pages"] == 6
+            record["sections"]["main_report"] = {"status": "passed", "body_pages": 5,
+                                                   "reference_pages": 1, "em_dashes": 0}
+        else:
+            record["sections"]["main_report"] = report_skip.copy()
 
-        optional = {"appendix_pdf": root / "report/advanced_analysis.pdf",
-                    "gallery_html": root / "report/advanced_analysis.html",
-                    "workbook": advanced / "advanced_results.xlsx"}
+        optional = {"workbook": advanced / "advanced_results.xlsx"}
         optional_results = {}
+        if include_reports:
+            optional.update({"appendix_pdf": root / "report/advanced_analysis.pdf",
+                             "gallery_html": root / "report/advanced_analysis.html"})
+        else:
+            optional_results.update({"appendix_pdf": report_skip.copy(), "gallery_html": report_skip.copy()})
         for name, path in optional.items():
             if not path.exists():
                 assert not require_present, f"Required final artifact missing: {path.relative_to(root)}"
@@ -374,9 +388,12 @@ def validate(root: Path, require_present: bool = False) -> dict:
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=ROOT)
-    parser.add_argument("--require-present", action="store_true", help="Require appendix PDF, gallery and workbook.")
+    parser.add_argument("--require-present", action="store_true",
+                        help="Require the workbook; also require appendix and gallery when --include-reports is set.")
+    parser.add_argument("--include-reports", action="store_true",
+                        help="Also check the optional main report, appendix and gallery in report/.")
     args = parser.parse_args()
-    result = validate(args.root, args.require_present)
+    result = validate(args.root, args.require_present, args.include_reports)
     print(json.dumps({key: result[key] for key in ["status", "independent_numeric_checks", "maximum_absolute_difference"]}, indent=2))
 
 

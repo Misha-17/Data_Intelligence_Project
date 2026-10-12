@@ -6,12 +6,13 @@ The prepared dataset has 182,487 rows from 15,952 patients and 28,498 culture ev
 
 ## Start here
 
-- [Main report](report/report.pdf): five pages, plus references.
-- [Extra analysis](report/advanced_analysis.pdf): more graphs and explanations.
-- [Graph gallery](report/advanced_analysis.html): download this project and open the file in a browser.
+- [Figures](results/advanced/figures): extra analysis graphs in PNG, SVG and PDF formats.
+- [Figure notes](results/advanced/figure_index.json): what each graph shows and which tables it uses.
 - [Main results](results/models/model_comparison.csv): model scores.
 - [Extra results workbook](results/advanced/advanced_results.xlsx): tables behind the extra analysis.
 - [Prepared dataset](results/analytical.parquet): the final data used by the models. A compressed CSV copy is also in `results/`.
+
+The graphs keep axis names and tick labels. Explanations and source details are in the figure notes and results workbook. [Model curve colours and panel order](results/figure_notes.json) are listed separately from the images.
 
 ## What we predict
 
@@ -50,7 +51,7 @@ Weighted LightGBM was selected using validation results. Its test scores are:
 | Resistant recall | 0.732 |
 | Brier score | 0.118 |
 
-AUROC measures ranking. Resistant precision tells us how often a resistance prediction is right. Resistant recall tells us how much resistance is found. Brier score measures probability error, so lower is better. The report explains the measures in more detail.
+AUROC measures ranking. Resistant precision tells us how often a resistance prediction is right. Resistant recall tells us how much resistance is found. Brier score measures probability error, so lower is better. The [method notes](docs/methods.html) explain the measures in more detail.
 
 The extra analysis checks which feature groups help, results for each drug, probability quality, missing data, and the effect of changing the cutoff. These are follow-up checks. They do not select a new model using test results.
 
@@ -64,7 +65,6 @@ The extra analysis checks which feature groups help, results for each drug, prob
 | `data/raw/` | Put the original ARMD files here |
 | `docs/` | Field definitions, feature mapping and method notes |
 | `results/` | Prepared data, scores, figures and saved models |
-| `report/` | Main report, extra analysis and graph gallery |
 | `config.json` | Sample size, random seed and selected antibiotics |
 | `requirements.txt` | Installs the package versions listed in `requirements-lock.txt` |
 
@@ -137,13 +137,21 @@ if (Test-Path results\advanced) {
 .\.venv\Scripts\python.exe scripts\run_advanced_analysis.py
 ```
 
-The last command also creates the reports, checks the results, and builds `submission/ARMD_project_package.zip`. The ZIP includes the prepared data and outputs, but not the large raw CSV files. Keep the same source files, settings and package versions to repeat the saved analysis. Times and file checksums can change between runs.
+The last command creates the figures and workbook, checks the results, and builds `submission/ARMD_project_package.zip`. The ZIP includes the prepared data and outputs, but not the large raw CSV files or reports. Keep the same source files, settings and package versions to repeat the saved analysis. Times and file checksums can change between runs.
 
-To only rebuild the figures, documents and ZIP from the saved analysis, run:
+To only rebuild the figures, workbook and ZIP from the saved analysis, run:
 
 ```powershell
 .\.venv\Scripts\python.exe scripts\run_advanced_analysis.py --presentation-only
 ```
+
+Reports are optional and are kept out of Git. To create them locally and include them in the ZIP, run:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\run_advanced_analysis.py --presentation-only --include-reports
+```
+
+If you package existing outputs separately, reports are included only with `scripts/package_submission.py --include-reports`.
 
 ## Limits
 
@@ -157,6 +165,6 @@ This is a coursework project, not a tool for choosing treatment.
 
 ## AI use
 
-OpenAI Codex helped with Python code, data checks, model comparisons, figures and writing. Tasks included building the data pipeline, checking leakage, adding useful analysis, and simplifying the report and README.
+OpenAI Codex helped with Python code, data checks, model comparisons, figures and writing. Tasks included building the data pipeline, checking leakage, adding useful analysis, and simplifying the README.
 
-Outputs were checked using tests, source-file checksums, separate recalculation of scores, and visual review of the reports and figures. AI use is also stated in the main report.
+Outputs were checked using tests, source-file checksums, separate recalculation of scores, and visual review of the figures.

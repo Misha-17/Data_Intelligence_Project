@@ -23,7 +23,9 @@ def run(script, *arguments):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--presentation-only', action='store_true',
-                        help='Reuse advanced numerical results; regenerate figures, documents and checks.')
+                        help='Reuse saved results; regenerate figures, workbooks and checks.')
+    parser.add_argument('--include-reports', action='store_true',
+                        help='Also create and check local reports, which are excluded from Git.')
     args = parser.parse_args()
     run('start_advanced_analysis.py')
     if not args.presentation_only:
@@ -33,13 +35,15 @@ def main():
         run_ablation(ROOT, ROOT/'results/advanced', seed=142, bootstrap_repeats=500)
         print('Frozen-model test diagnostics...', flush=True)
         run_diagnostics(ROOT, ROOT/'results/advanced', seed=142, repeats=500)
-    run('make_advanced_figures.py')
-    run('make_advanced_package.py')
-    run('make_report.py', '--results', 'results', '--output', 'report')
-    run('validate_package.py')
-    run('validate_advanced.py', '--require-present')
-    run('package_submission.py')
-    print('Advanced analysis, report, checks and submission archive are complete.')
+    run('refresh_result_figures.py')
+    report_args = ['--include-reports'] if args.include_reports else []
+    run('make_advanced_package.py', *report_args)
+    if args.include_reports:
+        run('make_report.py', '--results', 'results', '--output', 'report')
+    run('validate_package.py', *report_args)
+    run('validate_advanced.py', '--require-present', *report_args)
+    run('package_submission.py', *report_args)
+    print('Advanced figures, workbooks, checks and submission archive are complete.')
 
 
 if __name__ == '__main__':

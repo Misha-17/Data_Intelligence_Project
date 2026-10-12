@@ -1,0 +1,30 @@
+{
+  "visible_text": "axis names and tick labels only",
+  "model_curve_colors": {
+    "prevalence_baseline": "#1f77b4",
+    "antibiotic_baseline": "#ff7f0e",
+    "logistic_unweighted": "#2ca02c",
+    "logistic_balanced": "#d62728",
+    "lightgbm_unweighted": "#9467bd",
+    "lightgbm_balanced": "#8c564b"
+  },
+  "confusion_matrix_panel_order": [
+    "prevalence_baseline",
+    "antibiotic_baseline",
+    "logistic_unweighted",
+    "logistic_balanced",
+    "lightgbm_unweighted",
+    "lightgbm_balanced"
+  ],
+  "panel_order_rule": "Left to right, then top to bottom.",
+  "precision_recall_panels": [
+    "resistant",
+    "susceptible"
+  ],
+  "dashed_references": {
+    "calibration": "exact agreement",
+    "precision_recall": "class prevalence"
+  },
+  "summary_drug_plot": "Blue bars show resistance average precision; orange ticks show resistance prevalence.",
+  "advanced_figure_notes": "advanced/figure_index.json"
+}

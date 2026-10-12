@@ -1,6 +1,7 @@
 {
   "status": "passed",
   "require_present": true,
+  "include_reports": false,
   "sections": {
     "original_artifacts": {
       "unchanged_sha256": 7
@@ -96,21 +97,17 @@
       ]
     },
     "main_report": {
-      "body_pages": 5,
-      "reference_pages": 1,
-      "em_dashes": 0
+      "status": "skipped",
+      "reason": "Report checks skipped per repository scope; enable explicitly with --include-reports."
     },
     "supplementary_deliverables": {
       "appendix_pdf": {
-        "status": "passed",
-        "pages": 10,
-        "em_dashes": 0
+        "status": "skipped",
+        "reason": "Report checks skipped per repository scope; enable explicitly with --include-reports."
       },
       "gallery_html": {
-        "status": "passed",
-        "indexed_figures": 8,
-        "local_links": 56,
-        "em_dashes": 0
+        "status": "skipped",
+        "reason": "Report checks skipped per repository scope; enable explicitly with --include-reports."
       },
       "workbook": {
         "status": "passed",
