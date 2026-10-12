@@ -1,0 +1,41 @@
+{
+  "status": "exploratory extension after the primary test results were reported",
+  "main_model": "frozen selected weighted LightGBM; no new selection or tuning on test",
+  "random_seed": 142,
+  "patient_bootstrap_replicates": 500,
+  "questions": [
+    {
+      "question": "Which feature groups add useful prediction information?",
+      "design": "Fixed LightGBM ablations on the existing proper-fit/calibration patients; score only validation. Compare core, core plus labs/vitals, core plus history, full, and core plus availability patterns."
+    },
+    {
+      "question": "For which drugs are ranking, resistance detection and calibration reliable?",
+      "design": "Frozen test predictions; drug-level patient-cluster intervals, resistance AP with prevalence baselines, validation-defined reliability bins with sparse flags."
+    },
+    {
+      "question": "What happens when screening aims to find more resistance?",
+      "design": "Choose 70%, 80%, 90% resistance-recall targets on validation; freeze thresholds, then report test recall, false alerts and missed resistance per 1000 candidate rows. Retain original threshold as reference."
+    },
+    {
+      "question": "Where does incomplete label coverage limit interpretation?",
+      "design": "Top six organisms by training frequency, fixed candidate order; report retained S/R label coverage among included organism-events. Missing labels never become outcomes."
+    }
+  ],
+  "uncertainty": "95% pointwise patient-cluster percentile intervals, fixed models; no refitting or simultaneous coverage claim",
+  "presentation": "Consistent drug order, resistance probabilities, readable direct labels, restrained colors; PNG, SVG and PDF figures",
+  "limits": [
+    "No causal interpretation of feature ablations or availability patterns.",
+    "No clinical utility, treatment-benefit or external-site claim.",
+    "No calendar trend analysis because dates are shifted per patient.",
+    "Validation ablations and post hoc test diagnostics need independent confirmation."
+  ],
+  "protected_sha256": {
+    "results/analytical.parquet": "3bcbf5978b7c8f5e34a8bd8089b9a16784d4edd6b8c40e792b9d9725fa481925",
+    "results/models/predictions.parquet": "90feac00cb8509b9f86a0aeaddae032104d28bf21758e89bbe18789d87d3e1a3",
+    "results/models/model_comparison.csv": "70754e0ea15781e56de2dcadc3ea83f69e65d1ef08efc0579482496da59575cb",
+    "results/models/frozen_selection.json": "1c08a489dae696031c51c121f56a7eb6c51dc7c365dce336f9529810c392501f",
+    "results/models/training_patient_roles.csv": "4b408261c4c7771fde84a921c9805481529591b79d5a9cfb98651042198508da",
+    "results/models/evaluation_summary.json": "f16b791862d3d129550d80943d5e85af22e8588c4baa81bf5d8cc55e1719275b",
+    "results/models/models/lightgbm_balanced.joblib": "6dd1bf5a8af863e4666dc87461a51a7b9a36d977ac4706ac4935ecb405b6e859"
+  }
+}

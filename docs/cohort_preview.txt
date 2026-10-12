@@ -1,0 +1,512 @@
+document.getElementById('file_preview_box').innerHTML = `<div class="file_preview preview_csv" role="region" tabindex="0" aria-labelledby="preview_file_name">
+<p role="heading" level="3" id="preview_file_name"><span>Preview: microbiology_cultures_cohort.csv</span><button class="o-button__plain-text7" aria-label="Close preview" onclick="close_preview()"><i class="fas fa-times" aria-hidden="true"></i></button></p>
+    <table>
+      <thead><tr>
+          <th>anon_id</th>
+          <th>pat_enc_csn_id_coded</th>
+          <th>order_proc_id_coded</th>
+          <th>order_time_jittered_utc</th>
+          <th>ordering_mode</th>
+          <th>culture_description</th>
+          <th>was_positive</th>
+          <th>organism</th>
+          <th>antibiotic</th>
+          <th>susceptibility</th>
+      </tr></thead>
+      <tbody>
+          <tr>
+              <td>JC2744063</td>
+              <td>131368600230</td>
+              <td>928257722</td>
+              <td>2023-12-23 22:29:00+00:00</td>
+              <td>Inpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC1713666</td>
+              <td>131300064625</td>
+              <td>697566032</td>
+              <td>2020-12-27 00:40:00+00:00</td>
+              <td>Inpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC1669304</td>
+              <td>131272997044</td>
+              <td>620809641</td>
+              <td>2019-07-02 19:54:00+00:00</td>
+              <td>Inpatient</td>
+              <td>BLOOD</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC1697441</td>
+              <td>131208305006</td>
+              <td>510635146</td>
+              <td>2016-12-01 13:59:00+00:00</td>
+              <td>Inpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC600786</td>
+              <td>131344486993</td>
+              <td>834128837</td>
+              <td>2022-11-18 19:35:00+00:00</td>
+              <td>Outpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC1558041</td>
+              <td>131255756247</td>
+              <td>573086383</td>
+              <td>2018-09-11 04:30:00+00:00</td>
+              <td>Inpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC1783302</td>
+              <td>131294514927</td>
+              <td>681936151</td>
+              <td>2020-08-21 11:08:00+00:00</td>
+              <td>Inpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC934238</td>
+              <td>131295466446</td>
+              <td>684087246</td>
+              <td>2020-10-08 18:12:00+00:00</td>
+              <td>Inpatient</td>
+              <td>BLOOD</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC1523245</td>
+              <td>131267745763</td>
+              <td>609754703</td>
+              <td>2019-06-02 20:15:00+00:00</td>
+              <td>Outpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC1036903</td>
+              <td>131284302383</td>
+              <td>655477900</td>
+              <td>2020-02-03 21:09:00+00:00</td>
+              <td>Outpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC2015887</td>
+              <td>131346168170</td>
+              <td>841906083</td>
+              <td>2022-12-31 00:31:00+00:00</td>
+              <td>Inpatient</td>
+              <td>BLOOD</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC6220842</td>
+              <td>131361663884</td>
+              <td>902534974</td>
+              <td>2023-08-18 00:06:00+00:00</td>
+              <td>Inpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC3233135</td>
+              <td>131344239276</td>
+              <td>833009567</td>
+              <td>2022-11-05 02:02:00+00:00</td>
+              <td>Outpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC2315915</td>
+              <td>131301977623</td>
+              <td>702734598</td>
+              <td>2021-01-27 07:13:00+00:00</td>
+              <td>Inpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC944667</td>
+              <td>131258291020</td>
+              <td>586025745</td>
+              <td>2019-01-06 17:28:00+00:00</td>
+              <td>Inpatient</td>
+              <td>BLOOD</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC822918</td>
+              <td>131309360485</td>
+              <td>721238877</td>
+              <td>2021-05-07 07:34:00+00:00</td>
+              <td>Inpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC2435640</td>
+              <td>131300320078</td>
+              <td>698094086</td>
+              <td>2021-01-09 18:00:00+00:00</td>
+              <td>Outpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC624766</td>
+              <td>131238083420</td>
+              <td>535420343</td>
+              <td>2017-08-22 17:53:00+00:00</td>
+              <td>Inpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC1297041</td>
+              <td>131300262925</td>
+              <td>697923680</td>
+              <td>2020-12-20 20:26:00+00:00</td>
+              <td>Outpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC1779932</td>
+              <td>131265055166</td>
+              <td>599658107</td>
+              <td>2019-03-02 18:04:00+00:00</td>
+              <td>Outpatient</td>
+              <td>RESPIRATORY</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC621700</td>
+              <td>131366236873</td>
+              <td>919181523</td>
+              <td>2023-10-27 23:43:00+00:00</td>
+              <td>Inpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Ertapenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC2743865</td>
+              <td>131275599787</td>
+              <td>629091318</td>
+              <td>2019-10-14 00:14:00+00:00</td>
+              <td>Inpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Meropenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC2115956</td>
+              <td>131242371022</td>
+              <td>545978251</td>
+              <td>2018-01-13 12:35:00+00:00</td>
+              <td>Inpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Meropenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC2355849</td>
+              <td>131367698786</td>
+              <td>924743074</td>
+              <td>2023-11-12 21:01:00+00:00</td>
+              <td>Outpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Meropenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC1558041</td>
+              <td>131329378400</td>
+              <td>783542765</td>
+              <td>2022-04-14 20:26:00+00:00</td>
+              <td>Outpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Meropenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC2755410</td>
+              <td>131257831553</td>
+              <td>579115119</td>
+              <td>2018-11-01 21:04:00+00:00</td>
+              <td>Inpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Meropenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC737855</td>
+              <td>131299688363</td>
+              <td>696318992</td>
+              <td>2020-12-30 00:04:00+00:00</td>
+              <td>Inpatient</td>
+              <td>BLOOD</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Meropenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC552571</td>
+              <td>131225912526</td>
+              <td>523293358</td>
+              <td>2017-04-12 04:56:00+00:00</td>
+              <td>Inpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Meropenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC1075684</td>
+              <td>131345127676</td>
+              <td>837346772</td>
+              <td>2022-12-28 21:45:00+00:00</td>
+              <td>Inpatient</td>
+              <td>BLOOD</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Meropenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC1664698</td>
+              <td>131323294598</td>
+              <td>764469828</td>
+              <td>2021-11-10 18:36:00+00:00</td>
+              <td>Outpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Meropenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC704832</td>
+              <td>131360332417</td>
+              <td>898095841</td>
+              <td>2023-08-10 19:20:00+00:00</td>
+              <td>Outpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Meropenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC2838573</td>
+              <td>131296084957</td>
+              <td>685584305</td>
+              <td>2020-09-04 03:23:00+00:00</td>
+              <td>Outpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Meropenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC1075684</td>
+              <td>131319319544</td>
+              <td>760780771</td>
+              <td>2021-12-06 01:15:00+00:00</td>
+              <td>Inpatient</td>
+              <td>BLOOD</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Meropenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC3019853</td>
+              <td>131296335307</td>
+              <td>686348907</td>
+              <td>2020-10-14 02:11:00+00:00</td>
+              <td>Inpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Meropenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC960382</td>
+              <td>131362291301</td>
+              <td>904577272</td>
+              <td>2023-10-11 09:47:00+00:00</td>
+              <td>Inpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Meropenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC2315915</td>
+              <td>131301977623</td>
+              <td>702734598</td>
+              <td>2021-01-27 07:13:00+00:00</td>
+              <td>Inpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Meropenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC653841</td>
+              <td>131237346574</td>
+              <td>533710228</td>
+              <td>2017-08-20 18:38:00+00:00</td>
+              <td>Inpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Meropenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC2962517</td>
+              <td>131315755315</td>
+              <td>743260756</td>
+              <td>2021-08-23 23:03:00+00:00</td>
+              <td>Inpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Meropenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC1112952</td>
+              <td>131228854098</td>
+              <td>525616292</td>
+              <td>2017-04-27 18:34:00+00:00</td>
+              <td>Inpatient</td>
+              <td>BLOOD</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Meropenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC554136</td>
+              <td>131275959326</td>
+              <td>630177512</td>
+              <td>2019-10-17 22:09:00+00:00</td>
+              <td>Outpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Meropenem</td>
+              <td>Susceptible</td>
+          </tr>
+          <tr>
+              <td>JC661499</td>
+              <td>131292571557</td>
+              <td>676122495</td>
+              <td>2020-08-23 03:36:00+00:00</td>
+              <td>Outpatient</td>
+              <td>URINE</td>
+              <td>1</td>
+              <td>KLEBSIELLA PNEUMONIAE</td>
+              <td>Meropenem</td>
+              <td>Susceptibl</td>
+          </tr>
+      </tbody>
+    </table>
+</div>
+`

@@ -1,0 +1,124 @@
+{
+  "version": 1,
+  "prediction_time": "culture order",
+  "numeric_features": [
+    "lab_median_wbc_14d", "lab_median_creatinine_14d",
+    "vital_median_heart_rate_48h", "vital_median_temperature_48h",
+    "prior_abx_days_ago", "prior_abx_class_count_90d",
+    "prior_candidate_resistance_days_ago"
+  ],
+  "features": [
+    {
+      "name": "lab_median_wbc_14d",
+      "dtype": "nullable float",
+      "source_table": "microbiology_cultures_labs.csv",
+      "source_columns": ["median_wbc", "Period_Day"],
+      "description": "Source median white blood cell count within the 14 days before the culture order.",
+      "aggregation": "Accept Period_Day=14 only. Agreeing event summaries collapse. Conflicting nonmissing summaries become missing. Do not average medians.",
+      "timing": "The author manuscript page 5 defines a 14-day pre-order window. Measurement timestamps are not released, so individual timing cannot be checked.",
+      "missingness": "Absent, invalid, nonfinite or conflicting values remain missing. Imputation and scaling use training data only.",
+      "units": "Source native units; units are not documented in the supplied release. No conversion is applied.",
+      "model_role": "numeric predictor"
+    },
+    {
+      "name": "lab_median_creatinine_14d",
+      "dtype": "nullable float",
+      "source_table": "microbiology_cultures_labs.csv",
+      "source_columns": ["median_cr", "Period_Day"],
+      "description": "Source median creatinine within the 14 days before the culture order.",
+      "aggregation": "Accept Period_Day=14 only. Agreeing event summaries collapse. Conflicting nonmissing summaries become missing. Do not average medians.",
+      "timing": "The author manuscript page 5 defines a 14-day pre-order window. Measurement timestamps are not released, so individual timing cannot be checked.",
+      "missingness": "Absent, invalid, nonfinite or conflicting values remain missing. Imputation and scaling use training data only.",
+      "units": "Source native units; units are not documented in the supplied release. No conversion is applied.",
+      "model_role": "numeric predictor"
+    },
+    {
+      "name": "vital_median_heart_rate_48h",
+      "dtype": "nullable float",
+      "source_table": "microbiology_cultures_vitals.csv",
+      "source_columns": ["median_heartrate"],
+      "description": "Source median heart rate within the 48 hours before the culture order.",
+      "aggregation": "Agreeing event summaries collapse. Conflicting nonmissing summaries become missing. Do not average medians.",
+      "timing": "The author manuscript page 5 defines a 48-hour pre-order window. The CSV has no measurement timestamps or window column; timing follows that source contract.",
+      "missingness": "Absent, invalid, nonfinite or conflicting values remain missing. Imputation and scaling use training data only.",
+      "units": "Source native units; units are not documented in the supplied release. No conversion is applied.",
+      "model_role": "numeric predictor"
+    },
+    {
+      "name": "vital_median_temperature_48h",
+      "dtype": "nullable float",
+      "source_table": "microbiology_cultures_vitals.csv",
+      "source_columns": ["median_temp"],
+      "description": "Source median body temperature within the 48 hours before the culture order.",
+      "aggregation": "Agreeing event summaries collapse. Conflicting nonmissing summaries become missing. Do not average medians.",
+      "timing": "The author manuscript page 5 defines a 48-hour pre-order window. The CSV has no measurement timestamps or window column; timing follows that source contract.",
+      "missingness": "Absent, invalid, nonfinite or conflicting values remain missing. Imputation and scaling use training data only.",
+      "units": "Source native units; temperature scale is not documented in the supplied release. No conversion is applied.",
+      "model_role": "numeric predictor"
+    },
+    {
+      "name": "prior_abx_days_ago",
+      "dtype": "nullable float",
+      "source_table": "microbiology_cultures_antibiotic_class_exposure.csv",
+      "source_columns": ["time_to_culturetime", "order_time_jittered_utc"],
+      "description": "Days since the most recent recorded antibiotic exposure strictly before the culture order.",
+      "aggregation": "Match patient and culture keys and verify equal culture reference timestamps. Take the minimum finite, strictly positive day lag per event. All available prior history is considered.",
+      "timing": "README calls these prior exposures. Positive day differences mean before the culture order. Exclude zero, negative, missing or nonfinite lags. The release contains only positive lags in this source file.",
+      "missingness": "No eligible recorded exposure is unknown, not zero or a negative exposure finding. Observation completeness is not established.",
+      "units": "days, greater than zero",
+      "model_role": "numeric predictor"
+    },
+    {
+      "name": "prior_abx_class_count_90d",
+      "dtype": "nullable float",
+      "source_table": "microbiology_cultures_antibiotic_class_exposure.csv",
+      "source_columns": ["antibiotic_class", "time_to_culturetime", "order_time_jittered_utc"],
+      "description": "Number of distinct recorded antibiotic classes in the 90 days before the culture order, when at least one class is observed.",
+      "aggregation": "Verify culture timestamp. Select 0 < time_to_culturetime <= 90. Lowercase and trim class names, discard missing class names, then count distinct classes per event. Repeated rows do not increase the count.",
+      "timing": "Strictly positive lags within a fixed 90-day history window. This window is fixed in code and is not fitted to the labels.",
+      "missingness": "No recorded class in the window stays missing, including patients with older recorded exposures. A missing row cannot establish a true count of zero.",
+      "units": "number of distinct observed classes, at least one, or missing",
+      "model_role": "numeric predictor"
+    },
+    {
+      "name": "prior_candidate_resistance_days_ago",
+      "dtype": "nullable float",
+      "source_table": "microbiology_cultures_microbial_resistance.csv",
+      "source_columns": ["antibiotic", "resistant_time_to_culturetime", "order_time_jittered_utc"],
+      "description": "Days since the most recent recorded resistance to the candidate antibiotic, across any previous organism, strictly before culture order.",
+      "aggregation": "Verify patient, event and culture timestamp. Standardize antibiotic aliases using the cohort mapping. Take the minimum finite positive lag per event and candidate. Current organism and current susceptibility are never used.",
+      "timing": "README defines the lag from resistance confirmation to culture order. Positive lags identify historical observations; zero and negative lags are excluded. A source timeline check supports this direction; exact result timestamps are not released.",
+      "missingness": "No prior candidate resistance record stays unknown. It does not mean that prior tests were susceptible or that the patient has no resistance history.",
+      "units": "days, greater than zero",
+      "model_role": "numeric predictor"
+    }
+  ],
+  "excluded_tables": [
+    {"source_table": "microbiology_cultures_implied_susceptibility.csv", "reason": "Current inferred outcomes can create circular labels or leak test results. Excluded from labels and predictors."},
+    {"source_table": "microbiology_cultures_antibiotic_subtype_exposure.csv", "reason": "The selected class exposure table already provides a small prior antibiotic history set. No additional subtype mapping is needed."},
+    {"source_table": "microbiology_culture_prior_infecting_organism.csv", "reason": "Additional high-cardinality prior organism features are outside the selected common feature set."},
+    {"source_table": "microbiology_cultures_adi_scores.csv", "reason": "Area deprivation measures are not reliably shared across datasets and include source-level imputation."},
+    {"source_table": "microbiology_cultures_nursing_home_visits.csv", "reason": "Sparse, selected history table. A missing visit record cannot establish absence of nursing-home exposure."},
+    {"source_table": "microbiology_cultures_priorprocedures.csv", "reason": "Procedure history is outside the selected small common feature set."},
+    {"source_table": "microbiology_cultures_comorbidity.csv", "reason": "Not supplied and not required for this bounded analysis. Ongoing diagnoses would require special handling of missing end dates."}
+  ],
+  "references": [
+    {"url": "https://arxiv.org/pdf/2503.07664", "evidence": "Author manuscript, page 5: laboratory values within 14 days preceding culture order and vital signs within 48 hours preceding order."},
+    {"url": "https://datadryad.org/dataset/doi:10.5061/dryad.jq2bvq8kp", "evidence": "Release README: prior antibiotic exposure and days from resistance confirmation to culture order; common event linkage keys."}
+  ],
+  "source_checks": {
+    "laboratory_rows": 1408677,
+    "laboratory_period_day_values": {"14": 1408677},
+    "exposure_rows": 5402486,
+    "exposure_nonpositive_or_missing_lag_rows": 0,
+    "resistance_rows": 2161648,
+    "resistance_nonpositive_or_missing_lag_rows": 0,
+    "resistance_timeline_check": "First 3000 resistance-history rows linked by patient, organism and antibiotic to resistant cohort rows yielded 2046 prior-culture lag matches within 3 days versus 4 later-culture matches. This supports the positive-prior convention; it does not independently prove the release time of every result."
+  },
+  "limitations": [
+    "Only one source dataset is supplied. Cross-dataset comparability of numeric measurement units is not verified.",
+    "Laboratory and vital-sign windows rely on the source contract, as raw measurement and result timestamps are not released.",
+    "The history files do not establish complete observation. Absent history remains missing.",
+    "Median summaries with conflicting source values are set missing rather than combined without raw measurements."
+  ]
+}

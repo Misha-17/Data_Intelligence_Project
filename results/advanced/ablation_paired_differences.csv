@@ -1,0 +1,13 @@
+model_a,model_b,metric,difference_a_minus_b,ci_low,ci_high,valid_replicates,direction,split,exploratory,requested_replicates
+full,core_only,antibiotic_macro_auroc,0.07169515144627947,0.05297642989420677,0.09113111229180614,500,higher_is_better,validation,True,500
+full,core_only,antibiotic_macro_auprc_r,0.12304334593349375,0.09826337480266543,0.14425235259576333,500,higher_is_better,validation,True,500
+full,core_only,brier,-0.01043667074761502,-0.013090257010904032,-0.008374170862087783,500,lower_is_better,validation,True,500
+full,core_labs_vitals,antibiotic_macro_auroc,0.07999781898446601,0.06349757769362464,0.09802497976740657,500,higher_is_better,validation,True,500
+full,core_labs_vitals,antibiotic_macro_auprc_r,0.1292003292403658,0.10212545974081753,0.14858220437792613,500,higher_is_better,validation,True,500
+full,core_labs_vitals,brier,-0.010910121062855008,-0.013298727096356619,-0.008950240816586106,500,lower_is_better,validation,True,500
+full,core_prior_history,antibiotic_macro_auroc,0.0005683790104049624,-0.0054184601292523804,0.007079540560127307,500,higher_is_better,validation,True,500
+full,core_prior_history,antibiotic_macro_auprc_r,-0.0016658862524157048,-0.010908988170860971,0.008974937717556615,500,higher_is_better,validation,True,500
+full,core_prior_history,brier,0.000207835259513095,-6.912320004548827e-05,0.0004494656244378475,500,lower_is_better,validation,True,500
+full,core_availability_only,antibiotic_macro_auroc,0.007168529908002985,-0.0012315362997115024,0.014037307100311374,500,higher_is_better,validation,True,500
+full,core_availability_only,antibiotic_macro_auprc_r,0.04647170889258567,0.029410499748002666,0.059821992925154006,500,higher_is_better,validation,True,500
+full,core_availability_only,brier,-0.0033537756476074293,-0.004378141481566004,-0.0024274608547189274,500,lower_is_better,validation,True,500

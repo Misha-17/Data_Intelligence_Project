@@ -1,0 +1,41 @@
+{
+  "config": {
+    "seed": 42,
+    "sample_fraction": 0.25,
+    "source_dataset": "ARMD",
+    "target_list_status": "provisional; instructor list not supplied or independently verified",
+    "antibiotics": [
+      "ampicillin",
+      "amoxicillin/clavulanate",
+      "cefazolin",
+      "cefepime",
+      "ceftriaxone",
+      "ciprofloxacin",
+      "gentamicin",
+      "piperacillin/tazobactam",
+      "trimethoprim/sulfamethoxazole"
+    ],
+    "prediction_time": "culture order",
+    "split_method": "deterministic patient hash, 60% train, 20% validation, 20% test",
+    "bootstrap_replicates": 200
+  },
+  "python": "3.12.10",
+  "stage": "build",
+  "elapsed_seconds": 72.54553579958156,
+  "code_sha256": {
+    "src\\armd\\__init__.py": "3692d1bc167e48abf04163bd17e678c4d94d92a4ef7d7d53ca1948084f1e0117",
+    "src\\armd\\build.py": "085f6c2fdcb1886263608e42caf005cde204a4a96886d4f1e6e840e1da00e90c",
+    "src\\armd\\evaluate.py": "be5ccfb01d9cdd87502ba060b15329c67cd7aa7ba2131ca687ab2bb68f65f981",
+    "src\\armd\\support_features.py": "42bc2acc3864f030c8c9027bab24feec409fb8f98f39ece6df47f34730063c29",
+    "scripts\\download_data.py": "041f012fe5f39d9744f82234719e61266c9768fa74e179c15ebadbdacb42c6fa",
+    "scripts\\make_documentation.py": "5c076c1693a07303e7efe053f93d8715258eaab23bd4d746771b314c9739f115",
+    "scripts\\make_report.py": "3a7bae80fc9eb58cd71cc9116dd1417cd9116f74df02bba09e83a85119734099",
+    "scripts\\profile_source.py": "1fc4ca731f7deca0a34e25019557e79a6569664e3417e644c445724505825948",
+    "scripts\\run_pipeline.py": "3d427ae2afd2c55a747e11ed2cf817a9b2e4db4ca8f3a925d7629870b5bf2dff",
+    "scripts\\summarize_results.py": "d4d9f0f82b852a4355c63bd32f8997aab27549e65f0d84337c37625a7ad487aa",
+    "scripts\\unpack_sources.py": "89d879e3c5eee23e54c1a6528298efd885bdf2e7602127e03b9c725dcad8ee12"
+  },
+  "config_sha256": "84af8ecb5bed8c8f2cc645b08daec64340c2874a879e1e2f9fd8dd8554f4411a",
+  "source_release": "2025-10-22, Dryad version 403223",
+  "data_type": "real de-identified public ARMD; no synthetic observations"
+}

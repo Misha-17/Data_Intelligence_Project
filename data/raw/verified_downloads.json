@@ -1,0 +1,86 @@
+[
+  {
+    "file": "microbiology_cultures_implied_susceptibility.csv",
+    "bytes": 160695108,
+    "sha256": "58b9e4ea79a9d64b1b8974b23d81501c58d01e6a8580ccb08a9a5dd0e777b855",
+    "verified_against_dryad_version": "403223"
+  },
+  {
+    "file": "microbiology_cultures_labs.csv",
+    "bytes": 448776067,
+    "sha256": "f22e9a8e13f3e2e286b94c7550721c6db9a61a2c62f8646710257ae2c3e07569",
+    "verified_against_dryad_version": "403223"
+  },
+  {
+    "file": "microbiology_cultures_vitals.csv",
+    "bytes": 741901409,
+    "sha256": "b97775b3e1cca9586439a294c79ec0488d5dd5c3ae086f906f6443fd3448c2f8",
+    "verified_against_dryad_version": "403223"
+  },
+  {
+    "file": "microbiology_cultures_adi_scores.csv",
+    "bytes": 48017356,
+    "sha256": "196ae4b3b4b5a0a84af1806dbc37a5ec35edff77fa7650acd8789398f9309776",
+    "verified_against_dryad_version": "403223"
+  },
+  {
+    "file": "microbiology_culture_prior_infecting_organism.csv",
+    "bytes": 81528921,
+    "sha256": "232131ad16e3e8d60abff9fcba5a58849dd3e5b8a0e5256735463d83832ba833",
+    "verified_against_dryad_version": "403223"
+  },
+  {
+    "file": "microbiology_cultures_priorprocedures.csv",
+    "bytes": 126229633,
+    "sha256": "e3c58f90eb31333e3acf532f55b313910180810a101024535a3314eab963d8fc",
+    "verified_against_dryad_version": "403223"
+  },
+  {
+    "file": "README.md",
+    "bytes": 11239,
+    "sha256": "ed9df03bd51a7cb2a5c418603da01c5cfc448e621a06f46d3e2fba9c485fe68b",
+    "verified_against_dryad_version": "403223"
+  },
+  {
+    "file": "microbiology_cultures_antibiotic_class_exposure.csv",
+    "bytes": 540301997,
+    "sha256": "eda2bda3ef20b1d00ceb8ae5a33d1db7e8f32f9faceef39464facc8bc6e06015",
+    "verified_against_dryad_version": "403223"
+  },
+  {
+    "file": "microbiology_cultures_antibiotic_subtype_exposure.csv",
+    "bytes": 563209654,
+    "sha256": "b4413755da40e87215bc01c67b251081ef4a6d649ed672efadc45ff8730bf6f4",
+    "verified_against_dryad_version": "403223"
+  },
+  {
+    "file": "microbiology_cultures_ward_info.csv",
+    "bytes": 49894350,
+    "sha256": "1f8a1d004d4967b1acea311422fe6a6d0152c4c0ccccedbaaaff0379b771ed46",
+    "verified_against_dryad_version": "403223"
+  },
+  {
+    "file": "microbiology_cultures_cohort.csv",
+    "bytes": 257013798,
+    "sha256": "631d9f3c35e620b60366a5bcc3e94fd9c031c79c7fd2d042ea6f182a1fcdd871",
+    "verified_against_dryad_version": "403223"
+  },
+  {
+    "file": "microbiology_cultures_microbial_resistance.csv",
+    "bytes": 210857439,
+    "sha256": "3409054e1664ad128f1e568e92e275796ba2135849616d04c92b9031313edc70",
+    "verified_against_dryad_version": "403223"
+  },
+  {
+    "file": "microbiology_cultures_nursing_home_visits.csv",
+    "bytes": 462728,
+    "sha256": "cf66ca2bc441f0ad49164587e176720fba1d42a1c3006d2d7f11f5ed9f67aa17",
+    "verified_against_dryad_version": "403223"
+  },
+  {
+    "file": "microbiology_cultures_demographics.csv",
+    "bytes": 34784218,
+    "sha256": "1d18182aee2af9c34b6a95e1b399241a4cc64d007c8488196b43a97fa58f93ee",
+    "verified_against_dryad_version": "403223"
+  }
+]

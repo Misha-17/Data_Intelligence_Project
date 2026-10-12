@@ -1,0 +1,10 @@
+{
+  "seed": 42,
+  "sample_fraction": 0.25,
+  "source_dataset": "ARMD",
+  "target_list_status": "provisional; instructor list not supplied or independently verified",
+  "antibiotics": ["ampicillin", "amoxicillin/clavulanate", "cefazolin", "cefepime", "ceftriaxone", "ciprofloxacin", "gentamicin", "piperacillin/tazobactam", "trimethoprim/sulfamethoxazole"],
+  "prediction_time": "culture order",
+  "split_method": "deterministic patient hash, 60% train, 20% validation, 20% test",
+  "bootstrap_replicates": 200
+}

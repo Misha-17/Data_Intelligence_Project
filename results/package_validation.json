@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "analytical_rows": 182487,
+  "patients": 15952,
+  "cultures": 28498,
+  "duplicate_keys": 0,
+  "patients_in_multiple_splits": 0,
+  "independent_metric_checks": 48,
+  "maximum_metric_absolute_difference": 3.0531133177191805e-16,
+  "saved_model_prediction_check": "passed",
+  "dictionary_matches_analytical_columns": true,
+  "pdf_body_pages": 5,
+  "pdf_reference_pages": 1,
+  "report_em_dashes": 0,
+  "data_source": "real ARMD, publisher checksum verified",
+  "limitations": [
+    "Instructor nine-drug list not supplied; panel remains provisional.",
+    "Separate hospital identifiers and external dataset absent; independent site validation unavailable."
+  ]
+}

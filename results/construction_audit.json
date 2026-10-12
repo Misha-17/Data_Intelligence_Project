@@ -1,0 +1,131 @@
+{
+  "source_dataset": "ARMD",
+  "prediction_time": "culture order",
+  "target_list_status": "provisional; instructor list not supplied or independently verified",
+  "sample_fraction": 0.25,
+  "source_rows_scanned": 2241050,
+  "sample_rows": 560188,
+  "sample_patients_before_filters": 70702,
+  "sample_cultures_before_filters": 187495,
+  "events_with_conflicting_metadata_excluded": 0,
+  "rows_missing_key_or_time_excluded": 157605,
+  "rows_outside_target_set_excluded": 214094,
+  "negative_culture_rows_excluded": 0,
+  "target_rows_before_label_resolution": 188489,
+  "key_label_decisions": {
+    "retained": 182487,
+    "invalid_or_unknown_result": 4484,
+    "conflicting_s_r": 547
+  },
+  "duplicate_target_rows_before_resolution": 971,
+  "agreeing_duplicate_rows_collapsed": 0,
+  "demographics": {
+    "input_rows": 74347,
+    "unique_event_keys": 74347,
+    "duplicate_event_rows": 0,
+    "unavailable_columns": [],
+    "conflicting_cells_set_missing": 0
+  },
+  "ward_info": {
+    "input_rows": 74347,
+    "unique_event_keys": 74347,
+    "duplicate_event_rows": 0,
+    "unavailable_columns": [],
+    "conflicting_cells_set_missing": 0
+  },
+  "explicit_under18_rows_excluded": 0,
+  "support_features": {
+    "prediction_time": "culture order",
+    "numeric_features": [
+      "lab_median_wbc_14d",
+      "lab_median_creatinine_14d",
+      "vital_median_heart_rate_48h",
+      "vital_median_temperature_48h",
+      "prior_abx_days_ago",
+      "prior_abx_class_count_90d",
+      "prior_candidate_resistance_days_ago"
+    ],
+    "input_rows": 182487,
+    "tables": {
+      "microbiology_cultures_labs.csv": {
+        "source_rows_scanned": 1408677,
+        "matching_event_rows": 38076,
+        "source_period_day_counts": {
+          "14": 1408677
+        },
+        "undocumented_window_rows_excluded": 0,
+        "duplicate_event_rows": 25097,
+        "conflicting_cells_set_missing": 561,
+        "invalid_numeric_cells_set_missing": 0,
+        "aggregated_event_rows": 12979
+      },
+      "microbiology_cultures_vitals.csv": {
+        "source_rows_scanned": 4591374,
+        "matching_event_rows": 109205,
+        "duplicate_event_rows": 88836,
+        "conflicting_cells_set_missing": 0,
+        "invalid_numeric_cells_set_missing": 0,
+        "aggregated_event_rows": 20369
+      },
+      "microbiology_cultures_antibiotic_class_exposure.csv": {
+        "source_rows_scanned": 5402486,
+        "matching_event_rows": 269320,
+        "event_timestamp_mismatch_or_missing_rows_excluded": 0,
+        "same_day_or_future_rows_excluded": 0,
+        "invalid_lag_rows_excluded": 0,
+        "prior_lag_convention": "positive days before culture order; zero and negative excluded",
+        "eligible_history_rows": 269320,
+        "events_with_observed_prior_exposure": 20045,
+        "events_with_observed_class_in_90d": 10067
+      },
+      "microbiology_cultures_microbial_resistance.csv": {
+        "source_rows_scanned": 2161648,
+        "matching_event_rows": 194253,
+        "event_timestamp_mismatch_or_missing_rows_excluded": 0,
+        "same_day_or_future_rows_excluded": 0,
+        "invalid_lag_rows_excluded": 0,
+        "prior_lag_convention": "positive days before culture order; zero and negative excluded",
+        "eligible_history_rows": 194253,
+        "aggregated_event_candidate_rows": 47169
+      }
+    },
+    "output_rows": 182487,
+    "feature_nonmissing_rows": {
+      "lab_median_wbc_14d": 77545,
+      "lab_median_creatinine_14d": 78657,
+      "vital_median_heart_rate_48h": 129708,
+      "vital_median_temperature_48h": 118308,
+      "prior_abx_days_ago": 130133,
+      "prior_abx_class_count_90d": 63575,
+      "prior_candidate_resistance_days_ago": 20708
+    },
+    "timing_limitations": [
+      "Laboratory and vital-sign measurement times are not released; pre-order windows follow the author manuscript.",
+      "Historical lags follow the README convention and positive prior-history observations; exact result availability times cannot be reconstructed.",
+      "No observation-coverage table is released; absent history cannot establish no prior exposure or resistance.",
+      "Measurement units are not documented in this release and are retained without conversion."
+    ]
+  },
+  "analytical_rows": 182487,
+  "join_rows_before": 182487,
+  "join_rows_after": 182487,
+  "duplicate_analytical_keys": 0,
+  "patient_overlap_between_splits": 0,
+  "features": [
+    "candidate_antibiotic",
+    "age_group",
+    "gender_code",
+    "culture_type",
+    "ward_ip",
+    "ward_op",
+    "ward_er",
+    "ward_icu",
+    "lab_median_wbc_14d",
+    "lab_median_creatinine_14d",
+    "vital_median_heart_rate_48h",
+    "vital_median_temperature_48h",
+    "prior_abx_days_ago",
+    "prior_abx_class_count_90d",
+    "prior_candidate_resistance_days_ago"
+  ]
+}

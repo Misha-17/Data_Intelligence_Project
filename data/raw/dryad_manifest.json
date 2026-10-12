@@ -1,0 +1,563 @@
+{
+  "_links": {
+    "self": {
+      "href": "/api/v2/versions/403223/files"
+    },
+    "first": {
+      "href": "/api/v2/versions/403223/files"
+    },
+    "last": {
+      "href": "/api/v2/versions/403223/files?page=1"
+    }
+  },
+  "count": 17,
+  "total": 17,
+  "_embedded": {
+    "stash:files": [
+      {
+        "_links": {
+          "self": {
+            "href": "/api/v2/files/4420405"
+          },
+          "stash:dataset": {
+            "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.jq2bvq8kp"
+          },
+          "stash:version": {
+            "href": "/api/v2/versions/403223"
+          },
+          "stash:files": {
+            "href": "/api/v2/versions/403223/files"
+          },
+          "stash:download": {
+            "href": "/api/v2/files/4420405/download"
+          },
+          "curies": [
+            {
+              "name": "stash",
+              "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+              "templated": "true"
+            }
+          ]
+        },
+        "path": "implied_susceptibility_rules.csv",
+        "size": 2939,
+        "mimeType": "text/csv",
+        "status": "copied",
+        "digest": "886f9b15f53628fb26453f50fe2809e9e6280f0cc31d6e3994443652dd23f4b7",
+        "digestType": "sha-256"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "/api/v2/files/4420416"
+          },
+          "stash:dataset": {
+            "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.jq2bvq8kp"
+          },
+          "stash:version": {
+            "href": "/api/v2/versions/403223"
+          },
+          "stash:files": {
+            "href": "/api/v2/versions/403223/files"
+          },
+          "stash:download": {
+            "href": "/api/v2/files/4420416/download"
+          },
+          "curies": [
+            {
+              "name": "stash",
+              "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+              "templated": "true"
+            }
+          ]
+        },
+        "path": "microbiology_culture_prior_infecting_organism.csv",
+        "size": 81528921,
+        "mimeType": "text/csv",
+        "status": "copied",
+        "digest": "232131ad16e3e8d60abff9fcba5a58849dd3e5b8a0e5256735463d83832ba833",
+        "digestType": "sha-256"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "/api/v2/files/4420413"
+          },
+          "stash:dataset": {
+            "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.jq2bvq8kp"
+          },
+          "stash:version": {
+            "href": "/api/v2/versions/403223"
+          },
+          "stash:files": {
+            "href": "/api/v2/versions/403223/files"
+          },
+          "stash:download": {
+            "href": "/api/v2/files/4420413/download"
+          },
+          "curies": [
+            {
+              "name": "stash",
+              "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+              "templated": "true"
+            }
+          ]
+        },
+        "path": "microbiology_cultures_adi_scores.csv",
+        "size": 48017356,
+        "mimeType": "text/csv",
+        "status": "copied",
+        "digest": "196ae4b3b4b5a0a84af1806dbc37a5ec35edff77fa7650acd8789398f9309776",
+        "digestType": "sha-256"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "/api/v2/files/4420419"
+          },
+          "stash:dataset": {
+            "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.jq2bvq8kp"
+          },
+          "stash:version": {
+            "href": "/api/v2/versions/403223"
+          },
+          "stash:files": {
+            "href": "/api/v2/versions/403223/files"
+          },
+          "stash:download": {
+            "href": "/api/v2/files/4420419/download"
+          },
+          "curies": [
+            {
+              "name": "stash",
+              "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+              "templated": "true"
+            }
+          ]
+        },
+        "path": "microbiology_cultures_antibiotic_class_exposure.csv",
+        "size": 540301997,
+        "mimeType": "text/csv",
+        "status": "copied",
+        "digest": "eda2bda3ef20b1d00ceb8ae5a33d1db7e8f32f9faceef39464facc8bc6e06015",
+        "digestType": "sha-256"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "/api/v2/files/4420418"
+          },
+          "stash:dataset": {
+            "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.jq2bvq8kp"
+          },
+          "stash:version": {
+            "href": "/api/v2/versions/403223"
+          },
+          "stash:files": {
+            "href": "/api/v2/versions/403223/files"
+          },
+          "stash:download": {
+            "href": "/api/v2/files/4420418/download"
+          },
+          "curies": [
+            {
+              "name": "stash",
+              "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+              "templated": "true"
+            }
+          ]
+        },
+        "path": "microbiology_cultures_antibiotic_subtype_exposure.csv",
+        "size": 563209654,
+        "mimeType": "text/csv",
+        "status": "copied",
+        "digest": "b4413755da40e87215bc01c67b251081ef4a6d649ed672efadc45ff8730bf6f4",
+        "digestType": "sha-256"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "/api/v2/files/4420408"
+          },
+          "stash:dataset": {
+            "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.jq2bvq8kp"
+          },
+          "stash:version": {
+            "href": "/api/v2/versions/403223"
+          },
+          "stash:files": {
+            "href": "/api/v2/versions/403223/files"
+          },
+          "stash:download": {
+            "href": "/api/v2/files/4420408/download"
+          },
+          "curies": [
+            {
+              "name": "stash",
+              "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+              "templated": "true"
+            }
+          ]
+        },
+        "path": "microbiology_cultures_cohort.csv",
+        "size": 257013798,
+        "mimeType": "text/csv",
+        "status": "copied",
+        "digest": "631d9f3c35e620b60366a5bcc3e94fd9c031c79c7fd2d042ea6f182a1fcdd871",
+        "digestType": "sha-256"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "/api/v2/files/4420412"
+          },
+          "stash:dataset": {
+            "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.jq2bvq8kp"
+          },
+          "stash:version": {
+            "href": "/api/v2/versions/403223"
+          },
+          "stash:files": {
+            "href": "/api/v2/versions/403223/files"
+          },
+          "stash:download": {
+            "href": "/api/v2/files/4420412/download"
+          },
+          "curies": [
+            {
+              "name": "stash",
+              "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+              "templated": "true"
+            }
+          ]
+        },
+        "path": "microbiology_cultures_comorbidity.csv",
+        "size": 19666823104,
+        "mimeType": "text/csv",
+        "status": "copied",
+        "digest": "5928e959cb1bd79408527ae01bad9a02f2ee700024fbac9f9c4c46665cfd7361",
+        "digestType": "sha-256"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "/api/v2/files/4420414"
+          },
+          "stash:dataset": {
+            "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.jq2bvq8kp"
+          },
+          "stash:version": {
+            "href": "/api/v2/versions/403223"
+          },
+          "stash:files": {
+            "href": "/api/v2/versions/403223/files"
+          },
+          "stash:download": {
+            "href": "/api/v2/files/4420414/download"
+          },
+          "curies": [
+            {
+              "name": "stash",
+              "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+              "templated": "true"
+            }
+          ]
+        },
+        "path": "microbiology_cultures_demographics.csv",
+        "size": 34784218,
+        "mimeType": "text/csv",
+        "status": "copied",
+        "digest": "1d18182aee2af9c34b6a95e1b399241a4cc64d007c8488196b43a97fa58f93ee",
+        "digestType": "sha-256"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "/api/v2/files/4420410"
+          },
+          "stash:dataset": {
+            "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.jq2bvq8kp"
+          },
+          "stash:version": {
+            "href": "/api/v2/versions/403223"
+          },
+          "stash:files": {
+            "href": "/api/v2/versions/403223/files"
+          },
+          "stash:download": {
+            "href": "/api/v2/files/4420410/download"
+          },
+          "curies": [
+            {
+              "name": "stash",
+              "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+              "templated": "true"
+            }
+          ]
+        },
+        "path": "microbiology_cultures_implied_susceptibility.csv",
+        "size": 160695108,
+        "mimeType": "text/csv",
+        "status": "copied",
+        "digest": "58b9e4ea79a9d64b1b8974b23d81501c58d01e6a8580ccb08a9a5dd0e777b855",
+        "digestType": "sha-256"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "/api/v2/files/4420409"
+          },
+          "stash:dataset": {
+            "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.jq2bvq8kp"
+          },
+          "stash:version": {
+            "href": "/api/v2/versions/403223"
+          },
+          "stash:files": {
+            "href": "/api/v2/versions/403223/files"
+          },
+          "stash:download": {
+            "href": "/api/v2/files/4420409/download"
+          },
+          "curies": [
+            {
+              "name": "stash",
+              "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+              "templated": "true"
+            }
+          ]
+        },
+        "path": "microbiology_cultures_labs.csv",
+        "size": 448776067,
+        "mimeType": "text/csv",
+        "status": "copied",
+        "digest": "f22e9a8e13f3e2e286b94c7550721c6db9a61a2c62f8646710257ae2c3e07569",
+        "digestType": "sha-256"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "/api/v2/files/4420417"
+          },
+          "stash:dataset": {
+            "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.jq2bvq8kp"
+          },
+          "stash:version": {
+            "href": "/api/v2/versions/403223"
+          },
+          "stash:files": {
+            "href": "/api/v2/versions/403223/files"
+          },
+          "stash:download": {
+            "href": "/api/v2/files/4420417/download"
+          },
+          "curies": [
+            {
+              "name": "stash",
+              "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+              "templated": "true"
+            }
+          ]
+        },
+        "path": "microbiology_cultures_microbial_resistance.csv",
+        "size": 210857439,
+        "mimeType": "text/csv",
+        "status": "copied",
+        "digest": "3409054e1664ad128f1e568e92e275796ba2135849616d04c92b9031313edc70",
+        "digestType": "sha-256"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "/api/v2/files/4420407"
+          },
+          "stash:dataset": {
+            "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.jq2bvq8kp"
+          },
+          "stash:version": {
+            "href": "/api/v2/versions/403223"
+          },
+          "stash:files": {
+            "href": "/api/v2/versions/403223/files"
+          },
+          "stash:download": {
+            "href": "/api/v2/files/4420407/download"
+          },
+          "curies": [
+            {
+              "name": "stash",
+              "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+              "templated": "true"
+            }
+          ]
+        },
+        "path": "microbiology_cultures_nursing_home_visits.csv",
+        "size": 462728,
+        "mimeType": "text/csv",
+        "status": "copied",
+        "digest": "cf66ca2bc441f0ad49164587e176720fba1d42a1c3006d2d7f11f5ed9f67aa17",
+        "digestType": "sha-256"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "/api/v2/files/4420420"
+          },
+          "stash:dataset": {
+            "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.jq2bvq8kp"
+          },
+          "stash:version": {
+            "href": "/api/v2/versions/403223"
+          },
+          "stash:files": {
+            "href": "/api/v2/versions/403223/files"
+          },
+          "stash:download": {
+            "href": "/api/v2/files/4420420/download"
+          },
+          "curies": [
+            {
+              "name": "stash",
+              "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+              "templated": "true"
+            }
+          ]
+        },
+        "path": "microbiology_cultures_prior_med.csv",
+        "size": 840541368,
+        "mimeType": "text/csv",
+        "status": "copied",
+        "digest": "e6443f9b8b2ec1fefdcc2031e988bad4cda0aafa468cd6ad5b9dab3da9969e8a",
+        "digestType": "sha-256"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "/api/v2/files/4420415"
+          },
+          "stash:dataset": {
+            "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.jq2bvq8kp"
+          },
+          "stash:version": {
+            "href": "/api/v2/versions/403223"
+          },
+          "stash:files": {
+            "href": "/api/v2/versions/403223/files"
+          },
+          "stash:download": {
+            "href": "/api/v2/files/4420415/download"
+          },
+          "curies": [
+            {
+              "name": "stash",
+              "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+              "templated": "true"
+            }
+          ]
+        },
+        "path": "microbiology_cultures_priorprocedures.csv",
+        "size": 126229633,
+        "mimeType": "text/csv",
+        "status": "copied",
+        "digest": "e3c58f90eb31333e3acf532f55b313910180810a101024535a3314eab963d8fc",
+        "digestType": "sha-256"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "/api/v2/files/4420411"
+          },
+          "stash:dataset": {
+            "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.jq2bvq8kp"
+          },
+          "stash:version": {
+            "href": "/api/v2/versions/403223"
+          },
+          "stash:files": {
+            "href": "/api/v2/versions/403223/files"
+          },
+          "stash:download": {
+            "href": "/api/v2/files/4420411/download"
+          },
+          "curies": [
+            {
+              "name": "stash",
+              "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+              "templated": "true"
+            }
+          ]
+        },
+        "path": "microbiology_cultures_vitals.csv",
+        "size": 741901409,
+        "mimeType": "text/csv",
+        "status": "copied",
+        "digest": "b97775b3e1cca9586439a294c79ec0488d5dd5c3ae086f906f6443fd3448c2f8",
+        "digestType": "sha-256"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "/api/v2/files/4420406"
+          },
+          "stash:dataset": {
+            "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.jq2bvq8kp"
+          },
+          "stash:version": {
+            "href": "/api/v2/versions/403223"
+          },
+          "stash:files": {
+            "href": "/api/v2/versions/403223/files"
+          },
+          "stash:download": {
+            "href": "/api/v2/files/4420406/download"
+          },
+          "curies": [
+            {
+              "name": "stash",
+              "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+              "templated": "true"
+            }
+          ]
+        },
+        "path": "microbiology_cultures_ward_info.csv",
+        "size": 49894350,
+        "mimeType": "text/csv",
+        "status": "copied",
+        "digest": "1f8a1d004d4967b1acea311422fe6a6d0152c4c0ccccedbaaaff0379b771ed46",
+        "digestType": "sha-256"
+      },
+      {
+        "_links": {
+          "self": {
+            "href": "/api/v2/files/4420421"
+          },
+          "stash:dataset": {
+            "href": "/api/v2/datasets/doi%3A10.5061%2Fdryad.jq2bvq8kp"
+          },
+          "stash:version": {
+            "href": "/api/v2/versions/403223"
+          },
+          "stash:files": {
+            "href": "/api/v2/versions/403223/files"
+          },
+          "stash:download": {
+            "href": "/api/v2/files/4420421/download"
+          },
+          "curies": [
+            {
+              "name": "stash",
+              "href": "https://github.com/datadryad/dryad-app/blob/main/documentation/apis/link_relations.md#{rel}",
+              "templated": "true"
+            }
+          ]
+        },
+        "path": "README.md",
+        "size": 11239,
+        "mimeType": "text/markdown",
+        "status": "copied",
+        "digest": "ed9df03bd51a7cb2a5c418603da01c5cfc448e621a06f46d3e2fba9c485fe68b",
+        "digestType": "sha-256"
+      }
+    ]
+  }
+}

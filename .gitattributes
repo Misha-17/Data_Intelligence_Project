@@ -1,0 +1,13 @@
+* text=auto eol=lf
+
+# Keep saved results and publisher files byte-for-byte for checksum checks.
+results/** -text
+data/raw/** -text
+
+*.png binary
+*.pdf binary
+*.xlsx binary
+*.docx binary
+*.parquet binary
+*.joblib binary
+*.gz binary

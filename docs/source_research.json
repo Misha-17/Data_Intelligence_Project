@@ -1,0 +1,43 @@
+{
+  "checked_on": "2026-10-02",
+  "steward_aw": {
+    "status": "not_verified",
+    "note": "Exact-name and related web searches found no relevant primary source for STEWARD-AW or its nine-antibiotic cohort. Do not describe a chosen nine-drug list as the standard without an instructor source."
+  },
+  "sources": [
+    {
+      "title": "ARMD article, author manuscript",
+      "url": "https://arxiv.org/pdf/2503.07664",
+      "published_article_url": "https://www.nature.com/articles/s41597-025-05649-7",
+      "evidence": [
+        "Pages 3-4: adults, urine/blood/respiratory cultures; repeated cultures within two weeks excluded upstream.",
+        "Page 4: random date offsets are applied per patient and preserve relative timing.",
+        "Page 5: laboratory window is 14 days before culture order; vital-sign window is 48 hours before order.",
+        "Page 7: 751075 culture records and 283715 patients in the full resource; December 1999 to February 2024, with increased coverage after Epic adoption in 2008.",
+        "Page 7: NULL comorbidity end dates mean ongoing conditions, not absence.",
+        "Pages 1 and 3: two affiliated hospitals within Stanford Health Care."
+      ]
+    },
+    {
+      "title": "ARMD Dryad data and README",
+      "url": "https://datadryad.org/dataset/doi:10.5061/dryad.jq2bvq8kp",
+      "evidence": [
+        "Latest listed revision: 2025-10-22.",
+        "Link fields: anon_id, pat_enc_csn_id_coded, order_proc_id_coded, order_time_jittered_utc.",
+        "Ward documentation lists inpatient, outpatient, ER and ICU flags. A separate hospital identity was not verified.",
+        "Demographics contain age bins and anonymous binary gender codes; do not assign sex names to codes.",
+        "Microbial resistance table supplies resistant_time_to_culturetime; historical timing needs validation before feature use.",
+        "Implied susceptibilities and their rules are separate files.",
+        "Intermediate includes susceptible-dose-dependent. Inconclusive and synergy are separate outcomes."
+      ]
+    }
+  ],
+  "design_inferences": [
+    "The required organism-level grain does not require organism identity to be a model input. At culture order time, exclude current organism and current susceptibility results from inputs.",
+    "If organism is used as input, call this an organism-known prediction task and disclose that exact organism-release timing cannot be checked without a result timestamp.",
+    "Patient-level shifted dates do not establish real calendar ordering across patients. A split on shifted dates is only a sensitivity analysis, not a prospective calendar-time validation.",
+    "Do not label ward-based analysis as external hospital validation. With one identifiable source, disclose that independent site validation is unavailable.",
+    "Only measured susceptible and resistant records should define the primary target. Never use current MICs, susceptibility panels, derived resistance flags or implied labels as predictors.",
+    "Historical exposure and resistance features need an explicit sign convention, strict pre-order cutoffs, and one-row-per-event aggregation before merging. Missing linkage is not evidence of no exposure."
+  ]
+}

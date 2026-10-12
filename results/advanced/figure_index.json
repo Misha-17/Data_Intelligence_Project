@@ -1,0 +1,119 @@
+[
+  {
+    "stem": "01_model_comparison",
+    "title": "Model differences, with uncertainty",
+    "question": "How large are the differences between the original models?",
+    "source_tables": [
+      "../models/test_confidence_intervals.csv"
+    ],
+    "note": "Original test results; fixed fitted models; pointwise intervals.",
+    "files": {
+      "png": "figures/01_model_comparison.png",
+      "svg": "figures/01_model_comparison.svg",
+      "pdf": "figures/01_model_comparison.pdf"
+    }
+  },
+  {
+    "stem": "02_feature_group_ablation",
+    "title": "What each feature group adds on validation",
+    "question": "Do measured values add information beyond basic fields and recording patterns?",
+    "source_tables": [
+      "ablation_metrics.csv",
+      "ablation_paired_differences.csv"
+    ],
+    "note": "Validation only. Similar scores do not establish equivalence or transportability.",
+    "files": {
+      "png": "figures/02_feature_group_ablation.png",
+      "svg": "figures/02_feature_group_ablation.svg",
+      "pdf": "figures/02_feature_group_ablation.pdf"
+    }
+  },
+  {
+    "stem": "03_drug_performance",
+    "title": "Performance varies substantially across antibiotics",
+    "question": "Which drugs have stronger ranking and resistance detection, and how certain are those estimates?",
+    "source_tables": [
+      "drug_performance.csv"
+    ],
+    "note": "Drug order follows the configured panel, not test performance.",
+    "files": {
+      "png": "figures/03_drug_performance.png",
+      "svg": "figures/03_drug_performance.svg",
+      "pdf": "figures/03_drug_performance.pdf"
+    }
+  },
+  {
+    "stem": "04_overall_calibration",
+    "title": "Probability checks before and after calibration",
+    "question": "Are the probabilities close to observed resistance rates, and how concentrated are they?",
+    "source_tables": [
+      "calibration_bins.csv",
+      "probability_histogram.csv",
+      "calibration_summary.csv"
+    ],
+    "note": "A lower Brier score alone does not prove better calibration; use the reliability display too.",
+    "files": {
+      "png": "figures/04_overall_calibration.png",
+      "svg": "figures/04_overall_calibration.svg",
+      "pdf": "figures/04_overall_calibration.pdf"
+    }
+  },
+  {
+    "stem": "05_calibration_by_drug",
+    "title": "A good pooled calibration curve can hide drug differences",
+    "question": "Does probability agreement hold within each candidate drug?",
+    "source_tables": [
+      "calibration_bins.csv",
+      "calibration_summary.csv"
+    ],
+    "note": "Open markers flag sparse bins; their estimates need more caution.",
+    "files": {
+      "png": "figures/05_calibration_by_drug.png",
+      "svg": "figures/05_calibration_by_drug.svg",
+      "pdf": "figures/05_calibration_by_drug.pdf"
+    }
+  },
+  {
+    "stem": "06_threshold_tradeoffs",
+    "title": "Finding more resistance brings more false alerts",
+    "question": "What is the error burden when a cutoff aims to find more resistance?",
+    "source_tables": [
+      "threshold_operating_points.csv",
+      "fixed_thresholds_validation.json"
+    ],
+    "note": "Counts refer to candidate test rows, not patients. No treatment benefit or cost assumption is made.",
+    "files": {
+      "png": "figures/06_threshold_tradeoffs.png",
+      "svg": "figures/06_threshold_tradeoffs.svg",
+      "pdf": "figures/06_threshold_tradeoffs.pdf"
+    }
+  },
+  {
+    "stem": "07_label_coverage",
+    "title": "The available labels are uneven across organisms and drugs",
+    "question": "Which organism-drug combinations are well represented in the retained data?",
+    "source_tables": [
+      "organism_drug_slices.csv"
+    ],
+    "note": "The analysis cannot establish why a label is absent or estimate performance for untested combinations.",
+    "files": {
+      "png": "figures/07_label_coverage.png",
+      "svg": "figures/07_label_coverage.svg",
+      "pdf": "figures/07_label_coverage.pdf"
+    }
+  },
+  {
+    "stem": "08_missingness",
+    "title": "Missing information is common in every data split",
+    "question": "How much clinical information is unavailable, and does that change across splits?",
+    "source_tables": [
+      "missingness_by_split.csv"
+    ],
+    "note": "Counts avoid repeatedly counting shared culture features once per organism and drug.",
+    "files": {
+      "png": "figures/08_missingness.png",
+      "svg": "figures/08_missingness.svg",
+      "pdf": "figures/08_missingness.pdf"
+    }
+  }
+]

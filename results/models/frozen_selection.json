@@ -1,0 +1,15 @@
+{
+  "selected_model": "lightgbm_balanced",
+  "selection_split": "validation",
+  "selection_metric": "antibiotic_macro_auprc_r; lower Brier breaks ties",
+  "threshold_metric": "validation balanced accuracy; nearest 0.5 breaks ties",
+  "thresholds_s": {
+    "prevalence_baseline": 0.5,
+    "antibiotic_baseline": 0.84454457676215,
+    "logistic_unweighted": 0.8425447203780929,
+    "logistic_balanced": 0.8364707219377918,
+    "lightgbm_unweighted": 0.8104014433087107,
+    "lightgbm_balanced": 0.8115265958818227
+  },
+  "test_used_for_selection": false
+}

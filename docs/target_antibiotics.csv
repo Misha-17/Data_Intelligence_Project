@@ -1,0 +1,10 @@
+﻿candidate_antibiotic,selection_status,source,verified_steward_aw_standard
+ampicillin,provisional; instructor list not supplied or independently verified,config.json,no
+amoxicillin/clavulanate,provisional; instructor list not supplied or independently verified,config.json,no
+cefazolin,provisional; instructor list not supplied or independently verified,config.json,no
+cefepime,provisional; instructor list not supplied or independently verified,config.json,no
+ceftriaxone,provisional; instructor list not supplied or independently verified,config.json,no
+ciprofloxacin,provisional; instructor list not supplied or independently verified,config.json,no
+gentamicin,provisional; instructor list not supplied or independently verified,config.json,no
+piperacillin/tazobactam,provisional; instructor list not supplied or independently verified,config.json,no
+trimethoprim/sulfamethoxazole,provisional; instructor list not supplied or independently verified,config.json,no

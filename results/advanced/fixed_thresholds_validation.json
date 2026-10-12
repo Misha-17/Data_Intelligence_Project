@@ -1,0 +1,43 @@
+{
+  "selected_model": "lightgbm_balanced",
+  "exploratory": true,
+  "selection_split": "validation",
+  "test_used_for_threshold_selection": false,
+  "source_sha256": {
+    "results/analytical.parquet": "3bcbf5978b7c8f5e34a8bd8089b9a16784d4edd6b8c40e792b9d9725fa481925",
+    "results/models/predictions.parquet": "90feac00cb8509b9f86a0aeaddae032104d28bf21758e89bbe18789d87d3e1a3",
+    "results/models/frozen_selection.json": "1c08a489dae696031c51c121f56a7eb6c51dc7c365dce336f9529810c392501f"
+  },
+  "decision_rule": "resistant iff p_s < threshold_s; threshold_r = 1-threshold_s is a display value",
+  "tie_rule": "include every tied validation score via nextafter(score_s, +inf)",
+  "operating_points": [
+    {
+      "operating_point": "original",
+      "target_recall_r": null,
+      "threshold_s": 0.8115265958818227,
+      "threshold_r": 0.18847340411817726,
+      "selection": "original frozen validation-balanced-accuracy threshold"
+    },
+    {
+      "operating_point": "recall_70",
+      "target_recall_r": 0.7,
+      "threshold_s": 0.7984253368153177,
+      "threshold_r": 0.2015746631846823,
+      "selection": "highest resistance cutoff achieving validation recall target, ties kept together"
+    },
+    {
+      "operating_point": "recall_80",
+      "target_recall_r": 0.8,
+      "threshold_s": 0.8551412926392369,
+      "threshold_r": 0.14485870736076312,
+      "selection": "highest resistance cutoff achieving validation recall target, ties kept together"
+    },
+    {
+      "operating_point": "recall_90",
+      "target_recall_r": 0.9,
+      "threshold_s": 0.9062036887770265,
+      "threshold_r": 0.0937963112229735,
+      "selection": "highest resistance cutoff achieving validation recall target, ties kept together"
+    }
+  ]
+}

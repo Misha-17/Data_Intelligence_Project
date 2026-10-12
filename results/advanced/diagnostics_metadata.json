@@ -1,0 +1,72 @@
+{
+  "analysis_status": "exploratory follow-up; the frozen test set was examined in the original report",
+  "selected_model": "lightgbm_balanced",
+  "original_threshold_s": 0.8115265958818227,
+  "model_refit": false,
+  "main_estimates_changed": false,
+  "prediction_target": "S=1; R=0; figures and calibration use P(R)=1-P(S)",
+  "seed": 142,
+  "bootstrap_replicates": 500,
+  "confidence_intervals": "pointwise 95% percentile intervals from shared resampling of test patients with all rows retained; conditional on the fixed fitted model, thresholds and bin boundaries; not simultaneous or model-training uncertainty",
+  "cluster_resampling": "same test-patient draws used across all drugs, bins, operating points and paired calibration comparisons",
+  "source_sha256": {
+    "results/analytical.parquet": "3bcbf5978b7c8f5e34a8bd8089b9a16784d4edd6b8c40e792b9d9725fa481925",
+    "results/models/predictions.parquet": "90feac00cb8509b9f86a0aeaddae032104d28bf21758e89bbe18789d87d3e1a3",
+    "results/models/frozen_selection.json": "1c08a489dae696031c51c121f56a7eb6c51dc7c365dce336f9529810c392501f"
+  },
+  "source_contract": {
+    "analytical": "results/analytical.parquet: one patient x culture x organism x candidate antibiotic; patient-disjoint train/validation/test",
+    "predictions": "results/models/predictions.parquet: exact validation/test keys, labels and splits; p_s_lightgbm_balanced and p_s_raw_lightgbm_balanced",
+    "selection": "results/models/frozen_selection.json: selected_model, thresholds_s and validation-only selection audit"
+  },
+  "missing_metric_policy": "undefined metrics are missing, including precision when no rows are flagged; CIs use finite replicates and report their count",
+  "calibration": "10 overall bins, 5 per-drug bins from validation quantiles with duplicate edges collapsed; bins fixed before test evaluation; no test-fitted calibrator",
+  "calibration_sparse_flag": "n<100 or resistant count<20; zero-resistant bins may have degenerate bootstrap intervals and must not imply certainty",
+  "boundary_intervals": "bootstrap intervals can collapse to 0 or 1 when all observed cases share a binary outcome; this does not imply certainty for future patients",
+  "calibration_comparison": "raw minus already calibrated probabilities from the same frozen model; the original calibrator was fit on a patient-disjoint subset of training",
+  "ap_comparison_caution": "resistance AP depends on prevalence and case mix; AP/prevalence and (AP-prevalence)/(1-prevalence) are descriptive and do not establish cross-drug superiority",
+  "operating_points": "prespecified validation resistance recall targets 70%, 80%, 90% plus the original threshold; counts are retrospective classification consequences per 1000 retained candidate rows, not patient-level clinical decisions or treatment outcomes",
+  "organism_selection": "top six organisms by unique organism-event count in training only, with alphabetical tie breaking",
+  "selected_organisms": [
+    {
+      "organism": "escherichia coli",
+      "training_organism_events": 9315
+    },
+    {
+      "organism": "klebsiella pneumoniae",
+      "training_organism_events": 1558
+    },
+    {
+      "organism": "enterococcus species",
+      "training_organism_events": 1462
+    },
+    {
+      "organism": "staphylococcus aureus",
+      "training_organism_events": 1233
+    },
+    {
+      "organism": "pseudomonas aeruginosa",
+      "training_organism_events": 766
+    },
+    {
+      "organism": "proteus mirabilis",
+      "training_organism_events": 669
+    }
+  ],
+  "organism_slice_support": "error-rate displays require n>=50 and n_r>=20; coverage includes all selected organism x drug combinations and missing outcomes are never filled in",
+  "coverage_denominator": "test organism-events with at least one retained observed S/R outcome in the provisional antibiotic panel; this is retained analytical coverage, not all clinical susceptibility testing",
+  "site_validation": "unavailable; no hospital identifier exists in supplied source tables",
+  "test_rows": 37175,
+  "test_patients": 3203,
+  "test_resistant": 6829,
+  "outputs": [
+    "calibration_bins.csv",
+    "calibration_comparison.csv",
+    "calibration_summary.csv",
+    "drug_performance.csv",
+    "organism_drug_slices.csv",
+    "probability_histogram.csv",
+    "threshold_operating_points.csv",
+    "validation_tradeoff_curve.csv"
+  ]
+}

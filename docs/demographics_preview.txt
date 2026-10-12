@@ -1,0 +1,775 @@
+document.getElementById('file_preview_box').innerHTML = `<div class="file_preview preview_csv" role="region" tabindex="0" aria-labelledby="preview_file_name">
+<p role="heading" level="3" id="preview_file_name"><span>Preview: microbiology_cultures_demographics.csv</span><button class="o-button__plain-text7" aria-label="Close preview" onclick="close_preview()"><i class="fas fa-times" aria-hidden="true"></i></button></p>
+    <table>
+      <thead><tr>
+          <th>anon_id</th>
+          <th>pat_enc_csn_id_coded</th>
+          <th>order_proc_id_coded</th>
+          <th>age</th>
+          <th>gender</th>
+      </tr></thead>
+      <tbody>
+          <tr>
+              <td>JC1212710</td>
+              <td>131008781669</td>
+              <td>364609652</td>
+              <td>25-34 years</td>
+              <td>Null</td>
+          </tr>
+          <tr>
+              <td>JC1218441</td>
+              <td>33052060</td>
+              <td>351667304</td>
+              <td>25-34 years</td>
+              <td>Null</td>
+          </tr>
+          <tr>
+              <td>JC1261412</td>
+              <td>131004002288</td>
+              <td>355531114</td>
+              <td>25-34 years</td>
+              <td>Null</td>
+          </tr>
+          <tr>
+              <td>JC1224853</td>
+              <td>19532426</td>
+              <td>335118697</td>
+              <td>25-34 years</td>
+              <td>Null</td>
+          </tr>
+          <tr>
+              <td>JC1242725</td>
+              <td>32587123</td>
+              <td>349578403</td>
+              <td>25-34 years</td>
+              <td>Null</td>
+          </tr>
+          <tr>
+              <td>JC1253207</td>
+              <td>131010152115</td>
+              <td>369993038</td>
+              <td>25-34 years</td>
+              <td>Null</td>
+          </tr>
+          <tr>
+              <td>JC6332973</td>
+              <td>131343072572</td>
+              <td>830478384</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC5134781</td>
+              <td>131338982456</td>
+              <td>819348359</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2497630</td>
+              <td>131247298126</td>
+              <td>557242173</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2490513</td>
+              <td>131029317732</td>
+              <td>433305220</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2484877</td>
+              <td>16048620</td>
+              <td>328185626</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2325143</td>
+              <td>131217998419</td>
+              <td>517862497</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC1023665</td>
+              <td>131212128596</td>
+              <td>513673418</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2472828</td>
+              <td>131036156261</td>
+              <td>441174467</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2486192</td>
+              <td>15567542</td>
+              <td>325980068</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2493284</td>
+              <td>131238537446</td>
+              <td>536179722</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2625129</td>
+              <td>131354197831</td>
+              <td>875425499</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2332797</td>
+              <td>131181839748</td>
+              <td>490356808</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2254237</td>
+              <td>131019782850</td>
+              <td>404435068</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2762450</td>
+              <td>131258169202</td>
+              <td>578995004</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC1012226</td>
+              <td>131342554662</td>
+              <td>826549258</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2417930</td>
+              <td>131283745225</td>
+              <td>653531985</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2144699</td>
+              <td>131252134994</td>
+              <td>565362526</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC1231697</td>
+              <td>131301648765</td>
+              <td>702719376</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2320046</td>
+              <td>131309226782</td>
+              <td>737626461</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2839530</td>
+              <td>131268254497</td>
+              <td>611289392</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC1425609</td>
+              <td>131311380531</td>
+              <td>727610291</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2492155</td>
+              <td>131237816635</td>
+              <td>538803953</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2332614</td>
+              <td>131216931167</td>
+              <td>517078000</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC6436566</td>
+              <td>131362926487</td>
+              <td>909296903</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC1310421</td>
+              <td>131010701047</td>
+              <td>372139437</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2466909</td>
+              <td>131027261190</td>
+              <td>427053540</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2508331</td>
+              <td>131276048687</td>
+              <td>630307409</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC1332873</td>
+              <td>131012461671</td>
+              <td>379262074</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC1307814</td>
+              <td>131024712506</td>
+              <td>420099930</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2507747</td>
+              <td>131248724859</td>
+              <td>561344086</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2489820</td>
+              <td>14446575</td>
+              <td>324159141</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC1027593</td>
+              <td>131331248460</td>
+              <td>789471279</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2202691</td>
+              <td>131312259930</td>
+              <td>752778882</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2388406</td>
+              <td>131248413452</td>
+              <td>555722622</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2381351</td>
+              <td>131271309606</td>
+              <td>616673721</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2185343</td>
+              <td>131346362660</td>
+              <td>851390315</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2208312</td>
+              <td>32211861</td>
+              <td>347909211</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2390386</td>
+              <td>131283851073</td>
+              <td>654011090</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2513380</td>
+              <td>14864343</td>
+              <td>324653840</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC3235407</td>
+              <td>131323232256</td>
+              <td>778281527</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC1268968</td>
+              <td>131007029073</td>
+              <td>358304215</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2274543</td>
+              <td>131038266027</td>
+              <td>442947844</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2187492</td>
+              <td>131352974166</td>
+              <td>870698677</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2480914</td>
+              <td>131037976147</td>
+              <td>444779907</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC1600844</td>
+              <td>131025549132</td>
+              <td>422505187</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC6247272</td>
+              <td>131333488116</td>
+              <td>797207287</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC1011696</td>
+              <td>14839814</td>
+              <td>324261499</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2485688</td>
+              <td>131092336265</td>
+              <td>474164977</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC1267269</td>
+              <td>131240140994</td>
+              <td>546285139</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC5137905</td>
+              <td>131341421869</td>
+              <td>828688157</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2202620</td>
+              <td>131015851675</td>
+              <td>390997304</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2332614</td>
+              <td>131216931167</td>
+              <td>517078001</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC5374266</td>
+              <td>131335249821</td>
+              <td>802529225</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2516592</td>
+              <td>131268470351</td>
+              <td>612040676</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2497651</td>
+              <td>131243915222</td>
+              <td>548266509</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2513845</td>
+              <td>131256926306</td>
+              <td>575787186</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2490500</td>
+              <td>131235058289</td>
+              <td>532979002</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2328464</td>
+              <td>131290020495</td>
+              <td>668359021</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2513173</td>
+              <td>131272477887</td>
+              <td>624338354</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2496249</td>
+              <td>131003988209</td>
+              <td>355473581</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC6435892</td>
+              <td>131357207315</td>
+              <td>886454588</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC1638957</td>
+              <td>131118419654</td>
+              <td>474546807</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC6220389</td>
+              <td>131322489173</td>
+              <td>761949117</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2493661</td>
+              <td>131178822335</td>
+              <td>486912832</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2410777</td>
+              <td>131344240387</td>
+              <td>848060632</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC1041575</td>
+              <td>131356549095</td>
+              <td>884067481</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC5114859</td>
+              <td>131357699569</td>
+              <td>888280059</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2508741</td>
+              <td>131250941433</td>
+              <td>563654783</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2275695</td>
+              <td>131237812107</td>
+              <td>534687407</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2202691</td>
+              <td>131304445869</td>
+              <td>712126713</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC990908</td>
+              <td>131299986409</td>
+              <td>697113495</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC1756583</td>
+              <td>131208550392</td>
+              <td>513772925</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2343361</td>
+              <td>131262960300</td>
+              <td>592255390</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2244174</td>
+              <td>131079673588</td>
+              <td>460133735</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC1082675</td>
+              <td>131346746092</td>
+              <td>844626766</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2347144</td>
+              <td>131254854705</td>
+              <td>570955735</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2144699</td>
+              <td>131252134994</td>
+              <td>565362519</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2529082</td>
+              <td>131311901024</td>
+              <td>735351607</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC1165870</td>
+              <td>131001991312</td>
+              <td>352750668</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2468896</td>
+              <td>131006832246</td>
+              <td>362185521</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2945114</td>
+              <td>131294688751</td>
+              <td>684933686</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2898485</td>
+              <td>131338112842</td>
+              <td>811831044</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2492155</td>
+              <td>131237254584</td>
+              <td>533266214</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2516592</td>
+              <td>131279383272</td>
+              <td>639487506</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC650732</td>
+              <td>14835635</td>
+              <td>320663275</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC6540666</td>
+              <td>131364387317</td>
+              <td>912293870</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC1341291</td>
+              <td>131013156870</td>
+              <td>381787101</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2498267</td>
+              <td>131261792226</td>
+              <td>589593265</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2222103</td>
+              <td>131286440082</td>
+              <td>658149648</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2242969</td>
+              <td>131186918649</td>
+              <td>494700973</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2252094</td>
+              <td>131252987865</td>
+              <td>567180673</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC1285149</td>
+              <td>131016690457</td>
+              <td>393902977</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2513173</td>
+              <td>131268722737</td>
+              <td>613054004</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC987792</td>
+              <td>131063938221</td>
+              <td>454275507</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2258878</td>
+              <td>131185568960</td>
+              <td>493400613</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2415455</td>
+              <td>131311153933</td>
+              <td>730758903</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2523421</td>
+              <td>131292847319</td>
+              <td>698925493</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2467690</td>
+              <td>131015095962</td>
+              <td>388741355</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2202740</td>
+              <td>131336139226</td>
+              <td>805302866</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2344348</td>
+              <td>131158037599</td>
+              <td>480997397</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2891795</td>
+              <td>131295136254</td>
+              <td>683495922</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC656581</td>
+              <td>16625842</td>
+              <td>330626051</td>
+              <td>18-24 years</td>
+              <td>1</td>
+          </tr>
+          <tr>
+              <td>JC2397668</td>
+              <td>13129</td>
+          </tr>
+      </tbody>
+    </table>
+</div>
+`

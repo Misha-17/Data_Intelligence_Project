@@ -1,0 +1,144 @@
+{
+  "status": "passed",
+  "require_present": true,
+  "sections": {
+    "original_artifacts": {
+      "unchanged_sha256": 7
+    },
+    "source_alignment": {
+      "prediction_rows": 73466,
+      "duplicate_keys": 0,
+      "patients_in_multiple_splits": 0,
+      "label_or_split_mismatches": 0
+    },
+    "drug_performance": {
+      "drugs": 9,
+      "independent_library": "scikit-learn"
+    },
+    "thresholds": {
+      "frozen_points": 4,
+      "validated_split_point_rows": 8,
+      "validation_recall_targets": [
+        0.7,
+        0.8,
+        0.9
+      ],
+      "unique_score_tradeoff_rows": 25992,
+      "tie_rule": "strict p_s < threshold_s verified"
+    },
+    "calibration": {
+      "validation_defined_groups": 11,
+      "bins_checked": 65,
+      "histogram_groups": 11,
+      "test_fitted_calibration": false
+    },
+    "ablation": {
+      "validation_rows": 36291,
+      "feature_sets": 5,
+      "metric_estimates": 15,
+      "paired_intervals": 12,
+      "full_probabilities_exactly_equal_original": true,
+      "test_rows_in_ablation": 0,
+      "new_model_selection": false
+    },
+    "missingness": {
+      "rows": 21,
+      "unit_checks": [
+        {
+          "feature": "lab_median_wbc_14d",
+          "units_all_splits": 28498,
+          "conflicts_before_deduplication": 0
+        },
+        {
+          "feature": "lab_median_creatinine_14d",
+          "units_all_splits": 28498,
+          "conflicts_before_deduplication": 0
+        },
+        {
+          "feature": "vital_median_heart_rate_48h",
+          "units_all_splits": 28498,
+          "conflicts_before_deduplication": 0
+        },
+        {
+          "feature": "vital_median_temperature_48h",
+          "units_all_splits": 28498,
+          "conflicts_before_deduplication": 0
+        },
+        {
+          "feature": "prior_abx_days_ago",
+          "units_all_splits": 28498,
+          "conflicts_before_deduplication": 0
+        },
+        {
+          "feature": "prior_abx_class_count_90d",
+          "units_all_splits": 28498,
+          "conflicts_before_deduplication": 0
+        },
+        {
+          "feature": "prior_candidate_resistance_days_ago",
+          "units_all_splits": 173159,
+          "conflicts_before_deduplication": 0
+        }
+      ]
+    },
+    "retained_label_coverage": {
+      "training_selected_organisms": 6,
+      "observed_or_absent_cells_checked": 54,
+      "unobserved_outcomes_imputed": false
+    },
+    "figures": {
+      "figures": 8,
+      "valid_exports": 24,
+      "formats": [
+        "PNG",
+        "SVG",
+        "PDF"
+      ]
+    },
+    "main_report": {
+      "body_pages": 5,
+      "reference_pages": 1,
+      "em_dashes": 0
+    },
+    "supplementary_deliverables": {
+      "appendix_pdf": {
+        "status": "passed",
+        "pages": 10,
+        "em_dashes": 0
+      },
+      "gallery_html": {
+        "status": "passed",
+        "indexed_figures": 8,
+        "local_links": 56,
+        "em_dashes": 0
+      },
+      "workbook": {
+        "status": "passed",
+        "sheets": [
+          "Index",
+          "ablation_metrics",
+          "ablation_paired_differences",
+          "calibration_bins",
+          "calibration_comparison",
+          "calibration_summary",
+          "drug_performance",
+          "missingness_by_split",
+          "organism_drug_slices",
+          "probability_histogram",
+          "threshold_operating_points",
+          "validation_tradeoff_curve",
+          "Metadata",
+          "Figure index"
+        ],
+        "csv_tables_matched_cell_for_cell": 11,
+        "exported_data_rows": 26410
+      }
+    }
+  },
+  "limitations": [
+    "Numerical/file integrity checks do not establish clinical usefulness or external validity.",
+    "The advanced test analyses are exploratory because the original test results were already reviewed."
+  ],
+  "independent_numeric_checks": 1460,
+  "maximum_absolute_difference": 5.684341886080802e-14
+}

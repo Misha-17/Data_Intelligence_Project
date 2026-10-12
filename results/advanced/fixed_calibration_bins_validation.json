@@ -1,0 +1,171 @@
+{
+  "selection_split": "validation",
+  "test_used_for_bin_selection": false,
+  "closure": "[left, right), final bin includes 1",
+  "bins": [
+    {
+      "scope": "overall",
+      "candidate_antibiotic": "__ALL__",
+      "probability": "calibrated",
+      "edges": [
+        0.0,
+        0.0297963510288759,
+        0.05218925037275679,
+        0.071677000502267,
+        0.0935896993963562,
+        0.1156671861253451,
+        0.16240640384172145,
+        0.20713906710702634,
+        0.2941031820602985,
+        0.42419344873599707,
+        1.0
+      ],
+      "requested_bins": 10
+    },
+    {
+      "scope": "overall",
+      "candidate_antibiotic": "__ALL__",
+      "probability": "raw",
+      "edges": [
+        0.0,
+        0.11603491774653363,
+        0.1906013499418916,
+        0.24829903380104168,
+        0.30644772776276374,
+        0.3589117889281558,
+        0.45362965744388795,
+        0.5280835546185637,
+        0.6409829519972119,
+        0.7595388021858815,
+        1.0
+      ],
+      "requested_bins": 10
+    },
+    {
+      "scope": "drug",
+      "candidate_antibiotic": "amoxicillin/clavulanate",
+      "probability": "calibrated",
+      "edges": [
+        0.0,
+        0.0971364837624662,
+        0.1088154614729937,
+        0.1503015153763586,
+        0.20624454219400046,
+        1.0
+      ],
+      "requested_bins": 5
+    },
+    {
+      "scope": "drug",
+      "candidate_antibiotic": "ampicillin",
+      "probability": "calibrated",
+      "edges": [
+        0.0,
+        0.39285990871695264,
+        0.41233464662689423,
+        0.44808078555376246,
+        0.5539525718766878,
+        1.0
+      ],
+      "requested_bins": 5
+    },
+    {
+      "scope": "drug",
+      "candidate_antibiotic": "cefazolin",
+      "probability": "calibrated",
+      "edges": [
+        0.0,
+        0.09927130826488495,
+        0.12126609589140114,
+        0.17585528030435593,
+        0.27586893502441,
+        1.0
+      ],
+      "requested_bins": 5
+    },
+    {
+      "scope": "drug",
+      "candidate_antibiotic": "cefepime",
+      "probability": "calibrated",
+      "edges": [
+        0.0,
+        0.020999369060229256,
+        0.028085041191446017,
+        0.03697069973601428,
+        0.05636441692034076,
+        1.0
+      ],
+      "requested_bins": 5
+    },
+    {
+      "scope": "drug",
+      "candidate_antibiotic": "ceftriaxone",
+      "probability": "calibrated",
+      "edges": [
+        0.0,
+        0.055270444271701136,
+        0.06655027122002091,
+        0.08725741167442544,
+        0.13074715043400398,
+        1.0
+      ],
+      "requested_bins": 5
+    },
+    {
+      "scope": "drug",
+      "candidate_antibiotic": "ciprofloxacin",
+      "probability": "calibrated",
+      "edges": [
+        0.0,
+        0.09244438582284753,
+        0.11848753741078408,
+        0.14936651550180585,
+        0.22115462315865475,
+        1.0
+      ],
+      "requested_bins": 5
+    },
+    {
+      "scope": "drug",
+      "candidate_antibiotic": "gentamicin",
+      "probability": "calibrated",
+      "edges": [
+        0.0,
+        0.048373845958283514,
+        0.05475394282739225,
+        0.06318745067251286,
+        0.08127913419058866,
+        1.0
+      ],
+      "requested_bins": 5
+    },
+    {
+      "scope": "drug",
+      "candidate_antibiotic": "piperacillin/tazobactam",
+      "probability": "calibrated",
+      "edges": [
+        0.0,
+        0.018361302896959964,
+        0.02120591223898525,
+        0.025896940502713184,
+        0.037404670951200196,
+        1.0
+      ],
+      "requested_bins": 5
+    },
+    {
+      "scope": "drug",
+      "candidate_antibiotic": "trimethoprim/sulfamethoxazole",
+      "probability": "calibrated",
+      "edges": [
+        0.0,
+        0.1820607329551195,
+        0.2019523593580258,
+        0.2182449754798305,
+        0.2586277339834368,
+        1.0
+      ],
+      "requested_bins": 5
+    }
+  ]
+}

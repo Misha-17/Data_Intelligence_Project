@@ -1,0 +1,54 @@
+{
+  "cohort": {
+    "source": "https://datadryad.org/data_file/preview/4420408.js",
+    "file_id": 4420408,
+    "columns": [
+      "anon_id",
+      "pat_enc_csn_id_coded",
+      "order_proc_id_coded",
+      "order_time_jittered_utc",
+      "ordering_mode",
+      "culture_description",
+      "was_positive",
+      "organism",
+      "antibiotic",
+      "susceptibility"
+    ],
+    "note": "Columns verified from public preview only. Preview rows are not an analysis cohort."
+  },
+  "demographics": {
+    "source": "https://datadryad.org/data_file/preview/4420414.js",
+    "file_id": 4420414,
+    "columns": [
+      "anon_id",
+      "pat_enc_csn_id_coded",
+      "order_proc_id_coded",
+      "age",
+      "gender"
+    ],
+    "note": "Columns verified from public preview only. Preview rows are not an analysis cohort."
+  },
+  "ward": {
+    "source": "https://datadryad.org/data_file/preview/4420406.js",
+    "file_id": 4420406,
+    "columns": [
+      "anon_id",
+      "pat_enc_csn_id_coded",
+      "order_proc_id_coded",
+      "order_time_jittered_utc",
+      "hosp_ward_IP",
+      "hosp_ward_OP",
+      "hosp_ward_ER",
+      "hosp_ward_ICU"
+    ],
+    "note": "Columns verified from public preview only. Preview rows are not an analysis cohort."
+  },
+  "adapter_notes": [
+    "Demographics join uses patient, encounter and culture-order keys; it has no time column.",
+    "Age is a categorical range followed by years, for example 25-34 years.",
+    "Gender uses anonymous codes and literal Null missing markers.",
+    "Ward includes the culture-order timestamp plus four binary ward flags.",
+    "No separate hospital identity is present in the verified core files.",
+    "Keep all IDs as strings to avoid numeric coercion and precision loss."
+  ]
+}

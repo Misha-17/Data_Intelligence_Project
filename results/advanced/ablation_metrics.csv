@@ -1,0 +1,16 @@
+model,metric,estimate,ci_low,ci_high,valid_replicates,requested_replicates,method,feature_set,split,exploratory,rows,patients,direction
+full,antibiotic_macro_auroc,0.6964657454804281,0.6773986581827025,0.7155272379680601,500,500,patient-cluster percentile bootstrap,All features,validation,True,36291,3147,higher_is_better
+full,antibiotic_macro_auprc_r,0.37295798515718026,0.33842022655061527,0.4117803453648648,500,500,patient-cluster percentile bootstrap,All features,validation,True,36291,3147,higher_is_better
+full,brier,0.11389379942603532,0.11053899439934504,0.1178596918706439,500,500,patient-cluster percentile bootstrap,All features,validation,True,36291,3147,lower_is_better
+core_only,antibiotic_macro_auroc,0.6247705940341486,0.6008538332920224,0.6447408789929275,500,500,patient-cluster percentile bootstrap,Core features only,validation,True,36291,3147,higher_is_better
+core_only,antibiotic_macro_auprc_r,0.2499146392236865,0.22450856402482938,0.28101267070108166,500,500,patient-cluster percentile bootstrap,Core features only,validation,True,36291,3147,higher_is_better
+core_only,brier,0.12433047017365034,0.11978651960150857,0.12983673969040466,500,500,patient-cluster percentile bootstrap,Core features only,validation,True,36291,3147,lower_is_better
+core_labs_vitals,antibiotic_macro_auroc,0.616467926495962,0.5951104207855978,0.635165706060376,500,500,patient-cluster percentile bootstrap,Core + labs and vital signs,validation,True,36291,3147,higher_is_better
+core_labs_vitals,antibiotic_macro_auprc_r,0.24375765591681445,0.22161974218504313,0.27314982936705234,500,500,patient-cluster percentile bootstrap,Core + labs and vital signs,validation,True,36291,3147,higher_is_better
+core_labs_vitals,brier,0.12480392048889033,0.12049717330679321,0.13041633483929677,500,500,patient-cluster percentile bootstrap,Core + labs and vital signs,validation,True,36291,3147,lower_is_better
+core_prior_history,antibiotic_macro_auroc,0.6958973664700231,0.6765473094916294,0.7145854001349892,500,500,patient-cluster percentile bootstrap,Core + prior history,validation,True,36291,3147,higher_is_better
+core_prior_history,antibiotic_macro_auprc_r,0.37462387140959597,0.33534592867244767,0.41253620996065066,500,500,patient-cluster percentile bootstrap,Core + prior history,validation,True,36291,3147,higher_is_better
+core_prior_history,brier,0.11368596416652223,0.11034142576684329,0.11768425758927359,500,500,patient-cluster percentile bootstrap,Core + prior history,validation,True,36291,3147,lower_is_better
+core_availability_only,antibiotic_macro_auroc,0.6892972155724251,0.6710865061205891,0.7079217129452595,500,500,patient-cluster percentile bootstrap,Core + availability only,validation,True,36291,3147,higher_is_better
+core_availability_only,antibiotic_macro_auprc_r,0.3264862762645946,0.2959980487677308,0.3653359978628336,500,500,patient-cluster percentile bootstrap,Core + availability only,validation,True,36291,3147,higher_is_better
+core_availability_only,brier,0.11724757507364275,0.1134969153753551,0.12178354052761596,500,500,patient-cluster percentile bootstrap,Core + availability only,validation,True,36291,3147,lower_is_better

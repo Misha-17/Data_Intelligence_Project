@@ -1,0 +1,263 @@
+{
+  "analysis": "Feature-group ablation",
+  "evaluation_split": "validation",
+  "exploratory": true,
+  "original_model": "lightgbm_balanced",
+  "full_predictions_exactly_match_original": true,
+  "test_rows_loaded": false,
+  "test_used_for_fitting_or_selection": false,
+  "purpose": "Check the incremental predictive value of feature groups and availability patterns.",
+  "primary_metric": "antibiotic_macro_auprc_r",
+  "metrics": [
+    "antibiotic_macro_auprc_r",
+    "antibiotic_macro_auroc",
+    "brier"
+  ],
+  "macro_definition": "Equal-weight mean across candidate antibiotics with both classes in the evaluated sample; AUPRC is average precision.",
+  "brier_definition": "Mean squared susceptibility probability error across all validation rows; lower is better.",
+  "paired_difference": "full minus ablation; positive AP/AUROC and negative Brier favor full",
+  "core_features": [
+    "candidate_antibiotic",
+    "age_group",
+    "gender_code",
+    "culture_type",
+    "ward_ip",
+    "ward_op",
+    "ward_er",
+    "ward_icu"
+  ],
+  "labs_vitals_features": [
+    "lab_median_wbc_14d",
+    "lab_median_creatinine_14d",
+    "vital_median_heart_rate_48h",
+    "vital_median_temperature_48h"
+  ],
+  "prior_history_features": [
+    "prior_abx_days_ago",
+    "prior_abx_class_count_90d",
+    "prior_candidate_resistance_days_ago"
+  ],
+  "feature_sets": {
+    "full": {
+      "label": "All features",
+      "numeric": [
+        "lab_median_wbc_14d",
+        "lab_median_creatinine_14d",
+        "vital_median_heart_rate_48h",
+        "vital_median_temperature_48h",
+        "prior_abx_days_ago",
+        "prior_abx_class_count_90d",
+        "prior_candidate_resistance_days_ago"
+      ],
+      "source_feature_count": 15,
+      "availability_control": false,
+      "status": "original saved model; no refitting"
+    },
+    "core_only": {
+      "label": "Core features only",
+      "numeric": [],
+      "source_feature_count": 8,
+      "availability_control": false,
+      "encoded_features": 32,
+      "calibration_intercept": 1.4817774064758533,
+      "calibration_slope": 1.0091457342314807,
+      "fit_seconds": 0.7553014000877738
+    },
+    "core_labs_vitals": {
+      "label": "Core + labs and vital signs",
+      "numeric": [
+        "lab_median_wbc_14d",
+        "lab_median_creatinine_14d",
+        "vital_median_heart_rate_48h",
+        "vital_median_temperature_48h"
+      ],
+      "source_feature_count": 12,
+      "availability_control": false,
+      "encoded_features": 40,
+      "calibration_intercept": 1.4611968160384778,
+      "calibration_slope": 1.0216497995867557,
+      "fit_seconds": 0.9629675000905991
+    },
+    "core_prior_history": {
+      "label": "Core + prior history",
+      "numeric": [
+        "prior_abx_days_ago",
+        "prior_abx_class_count_90d",
+        "prior_candidate_resistance_days_ago"
+      ],
+      "source_feature_count": 11,
+      "availability_control": false,
+      "encoded_features": 38,
+      "calibration_intercept": 1.4657929880094807,
+      "calibration_slope": 0.9902840678829965,
+      "fit_seconds": 0.9285308001562953
+    },
+    "core_availability_only": {
+      "label": "Core + availability only",
+      "numeric": [
+        "lab_median_wbc_14d",
+        "lab_median_creatinine_14d",
+        "vital_median_heart_rate_48h",
+        "vital_median_temperature_48h",
+        "prior_abx_days_ago",
+        "prior_abx_class_count_90d",
+        "prior_candidate_resistance_days_ago"
+      ],
+      "source_feature_count": 15,
+      "availability_control": true,
+      "encoded_features": 46,
+      "calibration_intercept": 1.4734613020635425,
+      "calibration_slope": 0.9889727286142586,
+      "fit_seconds": 1.0134839001111686
+    }
+  },
+  "availability_control": "For seven numeric support features, observed values become an arbitrary constant zero and absent values remain NaN. Their missing indicators carry availability only. Core features stay unchanged. This derived control makes no claim that missing clinical information is zero.",
+  "partitions": {
+    "proper_fit": {
+      "rows": 86942,
+      "patients": 7681,
+      "resistant": 16364,
+      "susceptible": 70578
+    },
+    "calibration": {
+      "rows": 22079,
+      "patients": 1921,
+      "resistant": 4034,
+      "susceptible": 18045
+    },
+    "validation": {
+      "rows": 36291,
+      "patients": 3147,
+      "resistant": 6475,
+      "susceptible": 29816
+    }
+  },
+  "training_roles_source": "results/models/training_patient_roles.csv",
+  "preprocessing": "Original helper: proper-fit-only median imputation, scaling and one-hot encoding; separate missing indicators for all support features.",
+  "class_weights": "Balanced weights computed on unchanged proper-fit training rows only.",
+  "calibration": "Original unweighted sigmoid recipe fitted on the same held-out training patients; no validation recalibration.",
+  "hyperparameters": {
+    "boosting_type": "gbdt",
+    "class_weight": null,
+    "colsample_bytree": 0.9,
+    "importance_type": "split",
+    "learning_rate": 0.04,
+    "max_depth": -1,
+    "min_child_samples": 50,
+    "min_child_weight": 0.001,
+    "min_split_gain": 0.0,
+    "n_estimators": 220,
+    "n_jobs": 2,
+    "num_leaves": 15,
+    "objective": null,
+    "random_state": 42,
+    "reg_alpha": 0.0,
+    "reg_lambda": 1.0,
+    "subsample": 1.0,
+    "subsample_for_bin": 200000,
+    "subsample_freq": 0,
+    "verbosity": -1,
+    "deterministic": true,
+    "force_col_wise": true
+  },
+  "calibrator_parameters": {
+    "C": 1000000.0,
+    "class_weight": null,
+    "dual": false,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "l1_ratio": null,
+    "max_iter": 1000,
+    "multi_class": "deprecated",
+    "n_jobs": null,
+    "penalty": "l2",
+    "random_state": 42,
+    "solver": "lbfgs",
+    "tol": 0.0001,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "hyperparameters_or_thresholds_tuned": false,
+  "bootstrap": {
+    "unit": "patient",
+    "replicates": 500,
+    "seed": 142,
+    "interval": "95% percentile",
+    "paired": true,
+    "scope": "Fixed fitted models; intervals exclude model-training and prior model-selection uncertainty."
+  },
+  "validation_support_by_antibiotic": [
+    {
+      "antibiotic": "amoxicillin/clavulanate",
+      "rows": 2636,
+      "patients": 1572,
+      "resistant": 358,
+      "susceptible": 2278
+    },
+    {
+      "antibiotic": "ampicillin",
+      "rows": 4597,
+      "patients": 2597,
+      "resistant": 2260,
+      "susceptible": 2337
+    },
+    {
+      "antibiotic": "cefazolin",
+      "rows": 4086,
+      "patients": 2338,
+      "resistant": 831,
+      "susceptible": 3255
+    },
+    {
+      "antibiotic": "cefepime",
+      "rows": 1764,
+      "patients": 1078,
+      "resistant": 117,
+      "susceptible": 1647
+    },
+    {
+      "antibiotic": "ceftriaxone",
+      "rows": 3552,
+      "patients": 2094,
+      "resistant": 354,
+      "susceptible": 3198
+    },
+    {
+      "antibiotic": "ciprofloxacin",
+      "rows": 5247,
+      "patients": 2772,
+      "resistant": 960,
+      "susceptible": 4287
+    },
+    {
+      "antibiotic": "gentamicin",
+      "rows": 5167,
+      "patients": 2828,
+      "resistant": 417,
+      "susceptible": 4750
+    },
+    {
+      "antibiotic": "piperacillin/tazobactam",
+      "rows": 4099,
+      "patients": 2330,
+      "resistant": 81,
+      "susceptible": 4018
+    },
+    {
+      "antibiotic": "trimethoprim/sulfamethoxazole",
+      "rows": 5143,
+      "patients": 2841,
+      "resistant": 1097,
+      "susceptible": 4046
+    }
+  ],
+  "full_probability_sha256": "26263da6d21e3c23e12238cafc447b6a700bb6d49b1390b0e8b97b0fca10aed7",
+  "limitations": [
+    "These validation patients already informed original model and threshold selection; results are exploratory, not a new independent performance estimate.",
+    "Feature groups can overlap in information; differences do not isolate causal effects or identify treatment effects.",
+    "Availability patterns may reflect documentation or care processes and may not transfer to another setting.",
+    "Each feature set uses one unchanged training recipe, so results do not compare each feature set's optimally tuned model.",
+    "The original frozen model and test results remain unchanged; no new winning model is selected."
+  ],
+  "elapsed_seconds": 11.523325599730015
+}
