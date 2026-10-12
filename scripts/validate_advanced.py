@@ -11,7 +11,6 @@ import json
 from pathlib import Path
 import re
 import sys
-import xml.etree.ElementTree as ET
 
 import numpy as np
 import pandas as pd
@@ -284,23 +283,24 @@ def validate(root: Path, require_present: bool = False, include_reports: bool = 
         assert len(figure_index) == 8 and len({f["stem"] for f in figure_index}) == 8
         figure_paths = []
         for figure in figure_index:
-            assert set(figure["files"]) == {"png", "svg", "pdf"}
+            assert set(figure["files"]) == {"png"}
             for source in figure["source_tables"]:
                 assert (advanced / source).is_file(), f"Figure source absent: {source}"
             for kind, name in figure["files"].items():
                 path = advanced / name
                 assert path.is_file() and path.stat().st_size > 1000, f"Figure export absent/empty: {name}"
-                if kind == "png":
-                    with Image.open(path) as image:
-                        image.load()
-                        assert min(image.size) >= 1000, f"Figure raster too small: {name}"
-                elif kind == "svg":
-                    assert ET.parse(path).getroot().tag.endswith("svg")
-                else:
-                    assert len(PdfReader(path).pages) == 1
+                assert path.suffix.lower() == ".png"
+                with Image.open(path) as image:
+                    image.load()
+                    assert image.format == "PNG", f"Wrong figure format: {name}"
+                    assert min(image.size) >= 1000, f"Figure raster too small: {name}"
                 figure_paths.append(name)
+        for folder in (root / "results").rglob("figures"):
+            if folder.is_dir():
+                assert all(path.suffix.lower() == ".png" for path in folder.rglob("*") if path.is_file()), \
+                    f"Non-PNG file in figure folder: {folder}"
         record["sections"]["figures"] = {"figures": len(figure_index), "valid_exports": len(figure_paths),
-            "formats": ["PNG", "SVG", "PDF"]}
+            "formats": ["PNG"]}
 
         report_skip = {"status": "skipped",
                        "reason": "Report checks skipped per repository scope; enable explicitly with --include-reports."}

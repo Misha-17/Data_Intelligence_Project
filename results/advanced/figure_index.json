@@ -8,9 +8,7 @@
     ],
     "note": "Original test results; fixed fitted models; pointwise intervals.",
     "files": {
-      "png": "figures/01_model_comparison.png",
-      "svg": "figures/01_model_comparison.svg",
-      "pdf": "figures/01_model_comparison.pdf"
+      "png": "figures/01_model_comparison.png"
     },
     "visible_text": "axis names and tick labels only"
   },
@@ -24,9 +22,7 @@
     ],
     "note": "Validation only. Similar scores do not establish equivalence or transportability.",
     "files": {
-      "png": "figures/02_feature_group_ablation.png",
-      "svg": "figures/02_feature_group_ablation.svg",
-      "pdf": "figures/02_feature_group_ablation.pdf"
+      "png": "figures/02_feature_group_ablation.png"
     },
     "visible_text": "axis names and tick labels only"
   },
@@ -39,9 +35,7 @@
     ],
     "note": "Drug order follows the configured panel, not test performance. Teal dots are model estimates. Orange ticks mark resistance prevalence. Intervals are 95% patient-bootstrap intervals with 500 draws.",
     "files": {
-      "png": "figures/03_drug_performance.png",
-      "svg": "figures/03_drug_performance.svg",
-      "pdf": "figures/03_drug_performance.pdf"
+      "png": "figures/03_drug_performance.png"
     },
     "visible_text": "axis names and tick labels only"
   },
@@ -56,9 +50,7 @@
     ],
     "note": "A lower Brier score alone does not prove better calibration; use the reliability display too. Orange is before calibration; teal is after calibration. The gray dashed line marks exact agreement.",
     "files": {
-      "png": "figures/04_overall_calibration.png",
-      "svg": "figures/04_overall_calibration.svg",
-      "pdf": "figures/04_overall_calibration.pdf"
+      "png": "figures/04_overall_calibration.png"
     },
     "visible_text": "axis names and tick labels only"
   },
@@ -72,9 +64,7 @@
     ],
     "note": "Open markers flag sparse bins; their estimates need more caution. Panels run left to right, then top to bottom, in this order: ampicillin, amoxicillin/clavulanate, cefazolin, cefepime, ceftriaxone, ciprofloxacin, gentamicin, piperacillin/tazobactam, trimethoprim/sulfamethoxazole. The gray dashed line marks exact agreement. Open circles flag sparse bins.",
     "files": {
-      "png": "figures/05_calibration_by_drug.png",
-      "svg": "figures/05_calibration_by_drug.svg",
-      "pdf": "figures/05_calibration_by_drug.pdf"
+      "png": "figures/05_calibration_by_drug.png"
     },
     "visible_text": "axis names and tick labels only"
   },
@@ -88,9 +78,7 @@
     ],
     "note": "Counts refer to candidate test rows, not patients. No treatment benefit or cost assumption is made.",
     "files": {
-      "png": "figures/06_threshold_tradeoffs.png",
-      "svg": "figures/06_threshold_tradeoffs.svg",
-      "pdf": "figures/06_threshold_tradeoffs.pdf"
+      "png": "figures/06_threshold_tradeoffs.png"
     },
     "visible_text": "axis names and tick labels only"
   },
@@ -103,9 +91,7 @@
     ],
     "note": "The analysis cannot establish why a label is absent or estimate performance for untested combinations.",
     "files": {
-      "png": "figures/07_label_coverage.png",
-      "svg": "figures/07_label_coverage.svg",
-      "pdf": "figures/07_label_coverage.pdf"
+      "png": "figures/07_label_coverage.png"
     },
     "visible_text": "axis names and tick labels only"
   },
@@ -118,9 +104,7 @@
     ],
     "note": "Counts avoid repeatedly counting shared culture features once per organism and drug. Navy is training, orange is validation, and teal is test. The vertical offsets only separate the dots.",
     "files": {
-      "png": "figures/08_missingness.png",
-      "svg": "figures/08_missingness.svg",
-      "pdf": "figures/08_missingness.pdf"
+      "png": "figures/08_missingness.png"
     },
     "visible_text": "axis names and tick labels only"
   }

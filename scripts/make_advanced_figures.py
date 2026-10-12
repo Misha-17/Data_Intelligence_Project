@@ -21,7 +21,7 @@ def interval(ax, x, y, lo, hi, color=TEAL, marker='o', size=7):
     ax.plot(x, y, marker=marker, color=color, ms=size, markeredgecolor='white', markeredgewidth=0.8, zorder=4)
 
 def register(index, stem, title, question, sources, note):
-    index.append({'stem': stem, 'title': title, 'question': question, 'source_tables': sources, 'note': note, 'files': {ext: f'figures/{stem}.{ext}' for ext in ['png', 'svg', 'pdf']}})
+    index.append({'stem': stem, 'title': title, 'question': question, 'source_tables': sources, 'note': note, 'files': {'png': f'figures/{stem}.png'}})
 
 def comparison(root, out, index):
     ci = pd.read_csv(root / 'results/models/test_confidence_intervals.csv')
@@ -252,6 +252,6 @@ def main():
         if entry['stem'] in notes:
             entry['note'] += ' ' + notes[entry['stem']]
     (out.parent / 'figure_index.json').write_text(json.dumps(index, indent=2), encoding='utf-8')
-    print(f'Created {len(index)} figures in PNG, SVG and PDF formats.')
+    print(f'Created {len(index)} figures and one compact calibration view in PNG format.')
 if __name__ == '__main__':
     main()

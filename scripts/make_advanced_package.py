@@ -191,7 +191,7 @@ def write_pdf(root, index, content):
     for position, entry in enumerate(index, start=1):
         width, height = (792, 1008) if entry["stem"] == "05_calibration_by_drug" else (1008, 792)
         page_base(pdf, width, height, f"Figure {position:02d} of {len(index):02d}", position + 1, total)
-        placements.append((position, root / "results" / "advanced" / entry["files"]["pdf"],
+        placements.append((position, root / "results" / "advanced" / entry["files"]["png"],
                            fitz.Rect(28, 65, width - 28, height - 211)))
         top = 195
         for paragraph in content["notes"][entry["stem"]]:
@@ -209,8 +209,7 @@ def write_pdf(root, index, content):
     pdf.save()
     document = fitz.open(stream=buffer.getvalue(), filetype="pdf")
     for page_number, source, rect in placements:
-        with fitz.open(source) as figure:
-            document[page_number].show_pdf_page(rect, figure, 0, keep_proportion=True)
+        document[page_number].insert_image(rect, filename=str(source), keep_proportion=True)
     document.set_toc([[1, "What the extra analysis adds", 1]] +
                      [[1, f"{i + 1:02d}. {entry['title']}", i + 2] for i, entry in enumerate(index)] +
                      [[1, "Methods and limits", total]])
@@ -232,12 +231,12 @@ def write_gallery(root, index, content):
     articles = []
     for number, entry in enumerate(index, start=1):
         sources = " ".join(f'<a href="../results/advanced/{esc(path)}">{esc(Path(path).name)}</a>' for path in entry["source_tables"])
-        links = "".join(f'<a href="../results/advanced/{esc(entry["files"][extension])}" target="_blank" rel="noopener">{extension.upper()}</a>' for extension in ["svg", "pdf", "png"])
+        links = f'<a href="../results/advanced/{esc(entry["files"]["png"])}" target="_blank" rel="noopener">PNG</a>'
         paragraphs = "".join(f'<p>{esc(paragraph)}</p>' for paragraph in content["notes"][entry["stem"]])
         articles.append(f'''<article id="{esc(entry['stem'])}"><div class="eyebrow">FIGURE {number:02d} / {len(index):02d}</div>
 <h2>{esc(entry['title'])}</h2><p class="question">{esc(entry['question'])}</p>
-<a class="image-link" href="../results/advanced/{esc(entry['files']['svg'])}" target="_blank" rel="noopener" aria-label="Open full-size figure {number}">
-<img loading="lazy" src="../results/advanced/{esc(entry['files']['svg'])}" alt="{esc(entry['title'])}. {esc(content['notes'][entry['stem']][0])}"></a>
+<a class="image-link" href="../results/advanced/{esc(entry['files']['png'])}" target="_blank" rel="noopener" aria-label="Open full-size figure {number}">
+<img loading="lazy" src="../results/advanced/{esc(entry['files']['png'])}" alt="{esc(entry['title'])}. {esc(content['notes'][entry['stem']][0])}"></a>
 <div class="interpretation">{paragraphs}</div><div class="files"><b>Export figure</b>{links}<a href="#top">Back to top</a></div>
 <details><summary>Source tables and scope</summary><p>{esc(entry['note'])}</p><div class="source-links">{sources}</div></details></article>''')
     methods = "".join(f'<h3>{esc(title)}</h3><p>{esc(text)}</p>' for title, text in content["methods"])
@@ -250,7 +249,7 @@ def write_gallery(root, index, content):
 <ul class="findings">{highlights}</ul><p class="notice">These are exploratory follow-up analyses. The original selected model and primary results stay fixed. Feature comparisons use validation only; the test set was already examined in the original report.</p>
 <div class="downloads"><a href="advanced_analysis.pdf">Download the 10-page appendix</a><a href="../results/advanced/advanced_results.xlsx">Open the results workbook</a><a href="report.pdf">Main five-page report and references</a></div></header>
 {''.join(articles)}<section class="methods" id="methods"><div class="eyebrow">HOW TO READ THE EVIDENCE</div><h2>Methods and limits</h2>{methods}</section>
-<footer>Charts are available as SVG, PDF and PNG. This gallery uses local files and needs no web connection. Keep it inside the project folder so its figure and table links work.</footer></main></body></html>'''
+<footer>Charts are available as PNG. This gallery uses local files and needs no web connection. Keep it inside the project folder so its figure and table links work.</footer></main></body></html>'''
     plain(document)
     (root / "report" / "advanced_analysis.html").write_text(document, encoding="utf-8")
 
@@ -336,10 +335,10 @@ def write_workbook(root, index):
         if isinstance(row[2].value, str) and len(row[2].value) > 95:
             metadata.row_dimensions[row[2].row].height = min(90, 15 * math.ceil(len(row[2].value) / 95))
     figures = workbook.create_sheet("Figure index")
-    figures.append(["Figure", "Title", "Question", "Source tables", "Scope note", "SVG file", "PDF file"])
+    figures.append(["Figure", "Title", "Question", "Source tables", "Scope note", "PNG file"])
     for entry in index:
         figures.append([entry["stem"], entry["title"], entry["question"], "; ".join(entry["source_tables"]),
-                        entry["note"], entry["files"]["svg"], entry["files"]["pdf"]])
+                        entry["note"], entry["files"]["png"]])
     style_sheet(figures, "FigureIndexTable")
     overview.append(["Metadata", metadata.max_row - 1, "Study scope, fixed model settings, bootstrap details and source checksums.", "Saved JSON metadata"])
     overview.append(["Figure index", len(index), "Figure questions, source tables and export paths.", "figure_index.json"])

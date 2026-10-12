@@ -6,7 +6,7 @@ The prepared dataset has 182,487 rows from 15,952 patients and 28,498 culture ev
 
 ## Start here
 
-- [Figures](results/advanced/figures): extra analysis graphs in PNG, SVG and PDF formats.
+- [Figures](results/advanced/figures): extra analysis graphs in PNG format.
 - [Figure notes](results/advanced/figure_index.json): what each graph shows and which tables it uses.
 - [Main results](results/models/model_comparison.csv): model scores.
 - [Extra results workbook](results/advanced/advanced_results.xlsx): tables behind the extra analysis.

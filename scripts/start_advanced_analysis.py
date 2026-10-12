@@ -30,7 +30,7 @@ def main():
              'design':'Top six organisms by training frequency, fixed candidate order; report retained S/R label coverage among included organism-events. Missing labels never become outcomes.'},
         ],
         'uncertainty':'95% pointwise patient-cluster percentile intervals, fixed models; no refitting or simultaneous coverage claim',
-        'presentation':'Consistent drug order, resistance probabilities, readable direct labels, restrained colors; PNG, SVG and PDF figures',
+        'presentation':'Consistent drug order, resistance probabilities, restrained colors; PNG figures with axis names and tick labels only',
         'limits':['No causal interpretation of feature ablations or availability patterns.',
                   'No clinical utility, treatment-benefit or external-site claim.',
                   'No calendar trend analysis because dates are shifted per patient.',

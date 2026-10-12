@@ -43,7 +43,7 @@ def setup():
         'axes.labelsize':11,'axes.titlesize':13,'axes.titleweight':'bold',
         'xtick.labelsize':10,'ytick.labelsize':10,'xtick.major.size':0,'ytick.major.size':0,
         'legend.frameon':False,'legend.fontsize':10,'savefig.facecolor':'white',
-        'svg.fonttype':'none','pdf.fonttype':42,'figure.facecolor':'white'})
+        'figure.facecolor':'white'})
 
 
 def clean_figure(fig):
@@ -74,6 +74,5 @@ def save(fig, directory, stem):
     directory.mkdir(parents=True,exist_ok=True)
     clean_figure(fig)
     fig.tight_layout(pad=1.2)
-    for extension in ['png','svg','pdf']:
-        fig.savefig(directory/f'{stem}.{extension}',dpi=260,bbox_inches='tight',pad_inches=.16)
+    fig.savefig(directory/f'{stem}.png',dpi=260,bbox_inches='tight',pad_inches=.16)
     plt.close(fig)
