@@ -161,10 +161,4 @@ If you package existing outputs separately, reports are included only with `scri
 - Results cover drugs with recorded, clear labels. They may not apply to drugs without recorded results.
 - The extra analysis uses data already examined in the main study, so its findings need a separate check on new data.
 
-This is a coursework project, not a tool for choosing treatment.
 
-## AI use
-
-OpenAI Codex helped with Python code, data checks, model comparisons, figures and writing. Tasks included building the data pipeline, checking leakage, adding useful analysis, and simplifying the README.
-
-Outputs were checked using tests, source-file checksums, separate recalculation of scores, and visual review of the figures.
