@@ -16,7 +16,7 @@ ARTICLE = "https://www.nature.com/articles/s41597-025-05649-7"
 COHORT = "microbiology_cultures_cohort.csv"
 DEMOGRAPHICS = "microbiology_cultures_demographics.csv"
 WARD = "microbiology_cultures_ward_info.csv"
-PENDING = "Pending: instructor extract and field mapping not provided"
+PENDING = "Not applicable: no instructor extract supplied; mapped directly from ARMD Dryad version 403223"
 VERIFIED_PATH = ROOT / "data" / "raw" / "verified_downloads.json"
 VERIFIED = {x["file"]: x for x in json.loads(VERIFIED_PATH.read_text(encoding="utf-8"))} if VERIFIED_PATH.exists() else {}
 SOURCE_STATUS = "Derived field; see source mapping and construction audit"

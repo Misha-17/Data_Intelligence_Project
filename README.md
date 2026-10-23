@@ -79,6 +79,12 @@ py -3.12 -m venv .venv
 
 You do not need to activate the environment. The commands below use its Python directly.
 
+On macOS or Linux, set up and check the saved results with:
+
+```bash
+python3.12 -m venv .venv && .venv/bin/python -m pip install -r requirements.txt && .venv/bin/python -m pytest tests -q && .venv/bin/python scripts/validate_package.py && .venv/bin/python scripts/validate_advanced.py --require-present
+```
+
 ## Get the source data
 
 Data source: [ARMD on Dryad](https://datadryad.org/dataset/doi:10.5061/dryad.jq2bvq8kp).
@@ -162,3 +168,13 @@ If you package existing outputs separately, reports are included only with `scri
 - The extra analysis uses data already examined in the main study, so its findings need a separate check on new data.
 
 
+
+## Contribution statement
+
+Shivansh Singh did all data preparation, modelling, evaluation, figures, the report and the presentation as sole author.
+
+## AI-use declaration
+
+- Gemini: fixed LaTeX formatting issues in the report in Overleaf.
+- GPT 6.1: explained concepts from the ARMD paper.
+- How outputs were checked: formatting changes were checked by compiling the report and reading every page. Concept explanations were checked against the ARMD paper in Scientific Data. Every number in the report and slides comes from files in `results/`. The saved results pass 32 tests and both validation scripts.

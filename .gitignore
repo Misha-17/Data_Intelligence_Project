@@ -18,8 +18,6 @@ submission/
 .env.*
 !.env.example
 .aws/
-.codex/
-.agents/
 .vscode/
 .idea/
 Thumbs.db

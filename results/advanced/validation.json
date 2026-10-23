@@ -89,11 +89,9 @@
     },
     "figures": {
       "figures": 8,
-      "valid_exports": 24,
+      "valid_exports": 8,
       "formats": [
-        "PNG",
-        "SVG",
-        "PDF"
+        "PNG"
       ]
     },
     "main_report": {
